@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+        <style type="text/css">
+
+        body{
+            margin: 0;
+            display: block;
+            /*background-image: url('wov.png');*/
+
+        }
+            .header{
+                width: 100%;
+                height: 100px;
+                border: 1px solid black;
+                box-sizing:border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+                  .header .playerA{
+                    width: 50%;
+                    height: 100%;
+                    border:1px solid blue;
+                    box-sizing:border-box;
+                    float: left;
+                    text-align: center;
+                    line-height: 100px;
+
+                   }
+
+                   .header .playerA .playerAAvatar{
+
+                    width: 80px;
+                    height: 80px;
+                    border:1px solid black;
+                    float: left;
+                    margin-left: 2%;
+                    margin-top: 8px;
+                    line-height: 80px;
+                    /*background-image: url('ironman.png');*/
+                    background-size: 100% 100%;
+
+                   }
+
+                   .header .playerA .playerAInformation{
+
+                    width: 58%;
+                    height: 80px;
+                    border:1px solid black;
+                    float: left;
+                    margin-left: 2%;
+                    margin-top: 8px;
+                    line-height: 80px;
+
+                   }
+
+                   .header .playerA .playerAScore{
+
+                        width: 20%;
+                        height: 80px;
+                        border:1px solid black;
+                        box-sizing:border-box;
+                        float: right;
+                        margin-top: 8px;
+                        margin-right: 2%;
+                        text-align: center;
+                        line-height: 80px;
+                       
+                    }
+
+                   .header .playerB{
+                    width: 50%;
+                    height: 100%;
+                    border:1px solid red;
+                    box-sizing:border-box;
+                    float: left;
+                    text-align: center;
+                    line-height: 100px;
+                   }
+
+                        .header .playerB .playerBAvatar{
+
+                        width: 80px;
+                        height: 80px;
+                        border:1px solid black;
+                        float: left;
+                        margin-left: 2%;
+                        margin-top: 8px;
+                        line-height: 80px;
+
+                       }
+
+                         .header .playerB .playerBInformation{
+
+                    width: 58%;
+                    height: 80px;
+                    border:1px solid black;
+                    float: left;
+                    margin-left: 2%;
+                    margin-top: 8px;
+                    line-height: 80px;
+
+                   }
+
+
+                       .header .playerB .playerBScore{
+
+                            width: 20%;
+                            height: 80px;
+                            border:1px solid black;
+                            box-sizing:border-box;
+                            float: right;
+                            margin-top: 8px;
+                            margin-right: 2%;
+                            text-align: center;
+                            line-height: 80px;
+                           
+                        }
+    /*
+            .empty{
+                width: 100%;
+                height: 10px;
+                background-color: black;
+            }*/
+
+
+        .middleArea{
+
+            width: 100%;
+            height: 100%;
+           /* background-color: gray;*/
+        }
+
+        .gameArea{ 
+
+            width: 100%;
+            height: 450px;
+            margin-top: 10px;
+            /*border: 1px solid black;*/
+            box-sizing:border-box;
+            /*position: absolute;*/
+            float: left;
+
+
+        }
+
+            .gameArea .leftUserArea{
+                float: left;
+                width: 15%;
+                height: 100%;
+                border:1px solid blue;
+                box-sizing:border-box;
+                text-align: center;
+                line-height: 400px;
+            }
+
+            .gameArea .matchArea{
+
+                float: left;
+                width: 30%;
+                height: 100%;
+                border: 1px solid black;
+                box-sizing:border-box;
+                margin-left: 20%;
+                margin-right: 20%;
+               /* position: relative;*/
+            } 
+
+                 .gameArea .matchArea .match{
+
+                       width: 300px;
+                       height: 300px;
+                       border:1px solid green;
+                       box-sizing:border-box;
+                       margin: 20% auto 0 auto;
+                       text-align: center;
+                       line-height: 300px;
+
+                } 
+
+            .gameArea .rightUserArea{
+                float: right;
+                width: 15%;
+                height: 100%;
+                position: relative;
+                border:1px solid red;
+                box-sizing:border-box;
+                 text-align: center;
+                line-height: 400px;
+            }
+
+        .clear{
+            clear: both;
+        }
+
+        .empty{
+
+            width: 100%;
+            height: 10px;
+        }
+
+        .footer{
+       
+            width: 100%;
+            height: 120px;
+            box-sizing:border-box;
+            text-align: center;
+            line-height: 120px;
+            
+            
+        }
+
+            .footer .footerCard{
+
+                width: 80%;
+                height: 100%;
+                margin: 0 auto;
+                position: relative;
+                background-image: url(https://photos-6.dropbox.com/t/2/AAAZQNNxocJPwSLPosaQPdUV0-JaWmM06nffe85-O2x6Ng/12/444661990/png/32x32/1/_/1/2/card%20image.png/EOWEmssDGPq_HiAHKAc/WrJHNa-PziWs7P1efM-Xc72c_kCgRfmLST8CF-20O-0?size=1024x768&size_mode=3);
+                background-repeat: no-repeat;
+
+            }
+        </style>
+    </head>
+    <body>
+       <div class="header">
+            <div class="playerA">
+                 <div class="playerAAvatar">  </div>
+                 <div class="playerAInformation">플레이어1 상태값</div>
+                 <div class="playerAScore">점수</div>
+            </div>
+               
+            <div class="playerB">
+                <div class="playerBAvatar"> 캐릭터 </div>
+                <div class="playerBInformation">플레이어2 상태값</div>
+                <div class="playerBScore"> 점수
+                </div>
+            </div>
+       </div>
+       <div class="middleArea">
+       <div class="gameArea">
+            <div class="leftUserArea">
+                <div class="leftUser"> 플레이어1 
+
+                </div>
+            </div>
+             <div class="matchArea">
+                    <div class="match"> 매칭
+                    </div>
+            </div> 
+            <div class="rightUserArea">
+                <div class="rightUser"> 플레이어2
+                </div>
+            </div>
+       </div>
+       <div class="clear"></div>
+       <div class="empty"></div>
+       <div class="footer">
+            <div class="footerCard"></div>
+       </div>
+       
+    </body>
+</html>

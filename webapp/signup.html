@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Indian Signup</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="css/signup.css">
+</head>
+<body>
+	<form method="post" action="login.html">
+	<!-- 서버 전송으로 액션 바꿔야함 -->
+		<div id="signup-container">
+			<div class="userId">
+				<label for="userId" class="required">아이디:</label>
+				<input type="text" placeholder="아이디를 입력하세요" name="userId" id="userId"></input>
+			</div>
+			<div class="userEmail">
+	            <label for="userEmail" class="required">이메일:</label>
+	            <input type="email" placeholder="이메일을 입력하세요" name="userEmail" id="userEmail" required>
+	        </div>
+			<div class="userPassword">
+				<label for="userPassword" class="required">패스워드:</label>
+				<input type="password" placeholder="패스워드를 입력하세요" name="userPassword" id="userPassword"></input>
+			</div>
+			<div class="passwordConfirm">
+				<label for="passwordConfirm" class="required">패스워드 재확인:</label>
+				<input type="password" placeholder="패스워드를 재확인합니다" name="passwordConfirm" id="passwordConfirm"></input>	
+			</div>
+			<div class="signUpSubmit">
+				<input type="submit" value="제출">	
+				</input>
+			</div>
+		</div>
+	</form>
+	<script type= text/javascript src= http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js></script>
+	<script src="signup.js"></script>
+</body>
+</html>

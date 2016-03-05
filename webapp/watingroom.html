@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title> test </title>
+	<link rel="stylesheet" type="text/css" href="css/watingroom.css">
+	<script>
+
+	function readyOver1(){
+			document.getElementById("ready_1").innerHTML = "Wait..";
+			document.getElementById("ready_1").style.color = "red";
+			document.getElementById("ready_1").target = "_blank";
+		}
+
+		function readyOver2(){
+			document.getElementById("ready_2").innerHTML = "Wait..";
+			document.getElementById("ready_2").style.color = "red";
+			document.getElementById("ready_2").target = "_blank";
+		}
+		var info=document.getElementById("p1_info_table").style.height;
+		var avatar=document.getElementById("player1_avatar").style.height = "10%";
+		var ready1_check = document.getElementById("ready_1").innerHTML;
+		var ready2_check = document.getElementById("ready_2").innerHTML;
+
+		if(info>avatar)
+		{
+		    document.getElementById("p1_info_table").style.height=avatar;
+		}
+		else
+		{
+		    document.getElementById("player1_avatar").style.height=info;
+		}
+		
+
+		if ( (document.getElementById("ready_1").innerHTML == "Wait..") &&    
+		      (document.getElementById("ready_2").innerHTML =="Wait..") ){
+		            document.getElementById("start").style.color = "black";
+			}
+
+
+		
+
+	</script>
+</head>	
+<body>
+	<ul class="nav">
+  <li><a>Indian Poker</a></li>
+
+  <ul style="float:right;">
+    <li><a href="#about">Rules</a></li>
+    <li><a href="#login">Logout</a></li>
+  </ul>
+</ul>
+	<!-- 첫번째 플레이어에 대한 아바타와 정보가 뜬다.  -->
+	<div class="player1_avatar" id="player1_avatar" style="height="11px";">
+		<img src="space.png">
+		<span id="id_1">Player1</span>
+	</div>
+	<div class="player1_info" style="height="11px";">
+		<ul id="p1_info_table">
+			<li> ID : <span></span></li>
+			<li> WIN : <span></span></li>
+			<li> ratio : <span></span></li>
+			<li> rank : <span></span></li>
+		</ul>
+	</div>
+
+	<div class="wrapper">
+	<button id="ready_1" onclick="readyOver1()"> P1_READY </button>
+	<button id="start">Start</button>
+	<button id="ready_2" onclick="readyOver2()"> P2_READY </button>
+	</div>
+
+	<!-- 두번째 플레이어에 대한 아바타와 정보가 뜬다. -->
+	<div class="player2_avatar">
+		<img src="space.png">
+		<span id="id_2">Player2</span>
+	</div>
+	<div class="player2_info">
+		<ul id="p2_info_table">
+			<li> ID : <span></span></li>
+			<li> WIN : <span></span></li>
+			<li> ratio : <span></span></li>
+			<li> rank : <span></span></li>
+		</ul>
+	</div>
+	
+
+</body>
+</html>
