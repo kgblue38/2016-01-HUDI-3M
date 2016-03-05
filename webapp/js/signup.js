@@ -3,6 +3,21 @@ $(function() {
   	validateSignUp(e);
   });	 
 
+  $(".idConfirm").on('click', function(e) {
+    $.ajax({
+      type: "GET",
+      url: '#',
+      timeout: 2000,
+      sucess: function(isExistId) {
+        if (isExistId) {
+          alert("이미 존재하는 아이디입니다.");
+          return;
+        } 
+        alert("이 아이디로 회원가입하실 수 있습니다.");
+      }
+    });
+  });
+
   function validateSignUp(e) {
   	var eTarget = e.target;
   	var validationRegex = getValidationRegex(eTarget);
