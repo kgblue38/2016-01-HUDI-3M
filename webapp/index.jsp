@@ -57,12 +57,12 @@
 			<h2>Sign Up</h2>
 		</div>
 		<!-- <form class="form" action="/form_action.jsp" method="post"> -->
-		<form class="form" action="/users/save" method="post">
+		<form class="form" action="/users/create" method="post">
 			<div id="signup-container">
 				<div class="userId">
-					<label for="userId" class="required">UserId</label> </br>
-					<input type="text" placeholder="Input Id" name="userId"
-						id="userId"></input> </br>
+					<label for="userId" class="required">UserId</label> </br> <input
+						type="text" placeholder="Input Id" name="userId" id="userId"></input>
+					</br>
 					<button class="idConfirm">아이디 확인</button>
 				</div>
 				<div class="userPassword">
@@ -71,13 +71,13 @@
 						id="userPassword"></input>
 				</div>
 				<div class="passwordConfirm">
-					<label for="passwordConfirm" class="required">Confirm</label> </br>
-					<input type="password" placeholder="Confirm Password"
+					<label for="passwordConfirm" class="required">Confirm</label> </br> <input
+						type="password" placeholder="Confirm Password"
 						name="passwordConfirm" id="passwordConfirm"></input>
 				</div>
 				<div class="userEmail">
-					<label for="userEmail" class="required">email</label> </br>
-					<input type="email" placeholder="Input Email" name="userEmail"
+					<label for="userEmail" class="required">email</label> </br> <input
+						type="email" placeholder="Input Email" name="userEmail"
 						id="userEmail">
 				</div>
 				<div class="signUpSubmit">
@@ -97,14 +97,14 @@
 				<div id="id-container">
 					<label for="userId">UserId</label> <br /> <input type="text"
 						placeholder="Input Id" name="userId" id="userId"> <br />
-					<span class="warn">아이디를 입력하지 않으셨습니다.</span>
+					<span class="warn">Please input id</span>
 				</div>
 
 				<div id="userPassword-container">
 					<label for="userPassword">Password</label> <br /> <input
 						type="password" placeholder="Input Password" name="userPassword"
-						id="userPassword"> <br /> <span class="warn">비밀번호를
-						입력하지 않으셨습니다.</span>
+						id="userPassword"> <br /> <span class="warn">Please
+						input password</span>
 				</div>
 				<div id="loginSubmit">
 					<button type="submit">Login</button>
