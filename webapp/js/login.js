@@ -1,18 +1,27 @@
-$(function() {
-  $('#login-container').on('input', function(e) {
-    printWarnMsgWhenInputIsEmpty(e);
-  });
-
-  function printWarnMsgWhenInputIsEmpty(e) {
-    var eTarget = e.target;
-    if (isEmpty(eTarget)) {
-      $(e.target).siblings('.warn').show();
-      return;
-    }
-    $(e.target).siblings('.warn').hide();
-
+var LOGIN = (function() {
     function isEmpty(el) {
-    return $(el).val() === "";
+        return $(el).val() === "";
     }
-  }
-});
+
+    function printWarnMsgWhenInputIsEmpty(e) {
+        var eTarget = e.target;
+        console.debug("hi i`m login callback");
+        if (isEmpty(eTarget)) {
+            console.debug("input box is empty");
+            $(e.target).siblings('.warn').show();
+            return;
+        }
+        $(e.target).siblings('.warn').hide();
+    }
+
+    function init() {
+        $('#login-container').on('input', printWarnMsgWhenInputIsEmpty);
+    }
+    
+    return {
+        init: init
+    };
+})();
+
+
+
