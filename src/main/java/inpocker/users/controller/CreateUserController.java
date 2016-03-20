@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import inpocker.users.dao.UserDao;
 import inpocker.users.model.User;
 
-@WebServlet("users/create")
+@WebServlet("/users/create")
 public class CreateUserController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

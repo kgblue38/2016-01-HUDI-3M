@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import inpocker.users.dao.UserDao;
 import inpocker.users.model.User;
 
-@WebServlet("users/login")
+@WebServlet("/users/login")
 public class LoginController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

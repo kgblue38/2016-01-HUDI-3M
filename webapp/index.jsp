@@ -1,8 +1,6 @@
-<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -12,7 +10,6 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-<script type="text/javascript"></script>
 </head>
 <body>
 	<script src="lib/jquery-1.12.0.js"></script>
@@ -27,9 +24,7 @@
 
 	<c:if test="${not empty errorMessage}">
 		<div class="control-group">
-			<label class="error"> <%
- 	out.println(errorMessage);
- %></label>
+			<label class="error"> <% out.println(errorMessage); %></label>
 		</div>
 	</c:if>
 
@@ -92,7 +87,7 @@
 		<div class="box-header">
 			<h2>LogIn</h2>
 		</div>
-		<form class="form" action="/waitingroom.jsp" method="post">
+		<form class="form" action="/users/login" method="post">
 			<div id="login-container">
 				<div id="id-container">
 					<label for="userId">UserId</label> <br /> <input type="text"
@@ -114,7 +109,7 @@
 		<a href="#"><p class="small">Forgot your password?</p></a>
 	</div>
 
-	<!-- <script type="text/javascript" src="/js/index.js"></script> -->
+	<!-- <script type="text/javascript" src="/js/index.js"></script>  -->
 	<script>
 		$(document).ready(function() {
 			$("#signUp").on("click", function() {
