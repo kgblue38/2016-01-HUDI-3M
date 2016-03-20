@@ -1,6 +1,8 @@
 @CHARSET "UTF-8";
 body {
-	background: url("./image/desk.jpg") no-repeat center center fixed;
+/* 	background: url("./img/background.jpg") no-repeat center center fixed; */
+	background: url("/image/background.jpg") no-repeat fixed;
+    background-size: 100% auto;
 	background-size: cover;
 	/*font-size: 16px;
 	font-family: 'Lato', sans-serif;
@@ -19,22 +21,19 @@ h2 {
 }
 
 .header {
-	/*border: 1px solid white;*/
-	width: 290px;
-	height: 90px;
-	margin: 21% auto 0 40%;
-	border-radius: 10px;
+/* 	border: 1px solid white; */
+	width: 400px;
+	height: 200px;
+	margin: 10% auto 0 auto;
 	/*background-color: rgba(0,0,0,0.3);*/
 }
 
-#title {
+#title img{
 	font-family: 'Roboto Slab', serif;
 	font-size: 50px;
 	color: white;
 	text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-	text-align: center;
-	margin-top: 20px;
-	margin-left: 8px;
+
 }
 
 /*#subtitle{
@@ -55,7 +54,7 @@ h2 {
 	font-size: 17px;
 	color: white;
 	text-align: center;
-	margin-left: 42%;
+	margin-left: 40%;
 	margin-top: 17%;
 	background-color: rgba(0, 0, 0, 0.2);
 	box-sizing: border-box;
@@ -119,11 +118,23 @@ h2 {
 	
 }
 
-.login-box, .SignUp-box {
+.SignUp-box {
+	background-color: white;
+	width: 340px;
+	height: 460px;
+	margin: -8% auto 0 35%;
+	position: absolute;
+	border-radius: 5px;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+	text-align: center;
+	display: none;
+}
+
+.login-box {
 	background-color: white;
 	width: 340px;
 	height: 400px;
-	margin: -8% auto 0 38.3%;
+	margin: -8% auto 0 35%;
 	position: absolute;
 	border-radius: 5px;
 	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);

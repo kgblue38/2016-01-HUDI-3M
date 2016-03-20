@@ -6,13 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link rel='stylesheet'
-	href='http://fonts.googleapis.com/earlyaccess/nanumgothic.css'>
-<link
-	href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900'
-	rel='stylesheet' type='text/css'>
-
+<title>Indian Game</title>
 <link rel="stylesheet" type="text/css" href="./css/index.css">
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -23,7 +17,7 @@
 <body>
 
 	<div class="header">
-		<div id="title">Novelizer</div>
+		<img src="/image/indianpoker_logo.png">
 	</div>
 
 	<%
@@ -48,7 +42,7 @@
 				<a href="/users/logout">logout</a>
 			</div>
 			<div id="make">
-				<a href="/newProject.jsp">make 
+				<a href="/play.jsp">play 
 			</div>
 		</c:when>
 		<c:otherwise>
@@ -63,9 +57,14 @@
 		</div>
 		<!-- <form class="form" action="/form_action.jsp" method="post"> -->
 		<form class="form" action="/users/save" method="post">
-			<label for="userId">UserId</label> <br /> <input type="text"
-				id="userId" name="userId"> <br /> <label for="password">Password</label><br />
-			<input type="password" id="password" name="password"> <br />
+			<label for="userId">UserId</label> <br /> 
+				<input type="text" id="userId" name="userId" placeholder="userId"> <br /> 
+			<label for="password">Password</label><br />
+				<input type="password" id="password" name="password" placeholder="password"> <br />
+			<label for="name">name</label> <br /> 
+                <input class="form-control" id="name" name="name" placeholder="Name"> <br />
+            <label for="email">email</label> <br /> 
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email"> <br />
 			<button type="submit">Sign up</button>
 			<br />
 		</form>
@@ -75,11 +74,11 @@
 		<div class="box-header">
 			<h2>LogIn</h2>
 		</div>
-		<form class="form" action="/users/login" method="post">
+		<form class="form" action="/waitingroom.jsp" method="post">
 			<label for="userId">UserId</label> <br /> <input type="text"
 				name="userId"> <br /> <label for="password">Password</label><br />
 			<input type="password" name="password"> <br />
-			<button type="submit">Sign in</button>
+			<button type="submit">Login</button>
 			<br />
 		</form>
 		<a href="#"><p class="small">Forgot your password?</p></a>
