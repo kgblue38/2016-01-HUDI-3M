@@ -8,7 +8,7 @@ var SIGNUP = (function() {
     var validationMsg = {
         userId: {
             successMsg: "Id Success!",
-            errorMsg: "6~20 alphbet or number"
+            errorMsg: "6~20 letters starting alphabet"
         },
         userEmail: {
             successMsg: "Email Success!",
@@ -16,7 +16,7 @@ var SIGNUP = (function() {
         },
         userPassword: {
             successMsg: "Password Success!",
-            errorMsg: "6~20 alphbet & at least one number"
+            errorMsg: "6~20 alphbets with number"
         },
         passwordConfirm: {
             successMsg: "Matched Password!",

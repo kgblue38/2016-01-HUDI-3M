@@ -1,5 +1,7 @@
 package inpocker.users.model;
 
+import inpocker.users.dao.UserDao;
+
 public class User {
 	private int pid;
 	private String userId;
@@ -15,6 +17,17 @@ public class User {
 
 	public User(String userId, String userPassword, String email) {
 		this(0, userId, userPassword, email);
+	}
+	
+	public static boolean isCorrectLogin(String userId, String userPassword) {
+		// TODO User에서 UserDao로 위임하는게 좀 이상한데.. userId, userPassword를 가진 놈이 로직 처리하게 만드는게 
+		// 맞는 것도 같아서 이렇게 만듬.
+		UserDao userDao = new UserDao();
+		User dbUser = userDao.findUserById(userId);
+		if (dbUser == null) {
+			return false;
+		}
+		return dbUser.getUserPassword().equals(userPassword);
 	}
 	
 	public int getPid() {

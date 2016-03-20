@@ -1,4 +1,4 @@
-package inpoker.users.controller;
+package inpocker.wait.controller;
 
 import java.io.IOException;
 
@@ -9,12 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-// TODO DispatcherServlet & RequestMapping 사용해서 구현하기
-@WebServlet("/")
-public class HomeController extends HttpServlet{
+@WebServlet("/wait/roomForm")
+public class WaitRoomFormController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher rd = req.getRequestDispatcher("/index.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/watingroom.html");
 		rd.forward(req, resp);
 	}
 }
