@@ -14,7 +14,6 @@ public class HelloWorldServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String value = req.getParameter("name");
-		//브라우저를 통해 전달한 인자를 서블렛에 받는다.httpservletreques을 통해서 가능함. 
 		PrintWriter out = resp.getWriter();
 		out.print(value +" break");
 	} 

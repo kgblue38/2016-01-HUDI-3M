@@ -3,7 +3,7 @@ package core.jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class Connector {
+public class ConnectionManager {
 	public static Connection getConnection() {
 		String url = "jdbc:mysql://125.209.194.165:3306/indianPoker?useUnicode=true&characterEncoding=utf8";
 		String id = "threem";
