@@ -3,24 +3,24 @@ var SIGNUP = (function() {
         userId: /^[a-z]+[a-z0-9]{5,19}$/,
         userEmail: /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/,
         userPassword: /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/,
-        passwordConfirm: /^$/
+        passwordConfirm: null
     };
     var validationMsg = {
         userId: {
-            successMsg: "올바른 형식의 아이디를 입력하셨습니다.",
-            errorMsg: "아이디는 영문으로 시작하는 6 ~ 20자 영문과 숫자로만 가능합니다."
+            successMsg: "Id Success!",
+            errorMsg: "6~30 alphbat or number"
         },
         userEmail: {
-            successMsg: "올바른 형식의 이메일을 입력하셨습니다.",
-            errorMsg: "이메일 형식이 올바르지 않습니다."
+            successMsg: "Email Success!",
+            errorMsg: "Wrong email format"
         },
         userPassword: {
-            successMsg: "올바른 형식의 패스워드를 입력하셨습니다.",
-            errorMsg: "6 ~ 20자 영문과 최소 1개의 숫자 혹은 특수문자를 포함해야합니다."
+            successMsg: "Password Success!",
+            errorMsg: "6~20 alphbat & at least one number"
         },
         passwordConfirm: {
-            successMsg: "패스워드와 일치합니다.",
-            errorMsg: "패스워드와 일치하지 않습니다."
+            successMsg: "Matched Password!",
+            errorMsg: "Unmatched Password"
         }
     };
 
@@ -34,7 +34,7 @@ var SIGNUP = (function() {
         var $eTarget = $(eTarget);
         var validationContainer = $eTarget.siblings(".validationMsg");
         if (!validationContainer.length) {
-            validationContainer = $('<span class="validationMsg"></span>').insertAfter($eTarget);
+            validationContainer = $('</br><span class="validationMsg"></span>').insertAfter($eTarget);
         }
         validationContainer.text(validationMsg);
     }

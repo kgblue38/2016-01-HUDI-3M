@@ -15,6 +15,7 @@ var LOGIN = (function() {
     }
 
     function init() {
+    	$('.warn').hide();
         $('#login-container').on('input', printWarnMsgWhenInputIsEmpty);
     }
     
