@@ -82,4 +82,10 @@ public class User {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "User [pid=" + pid + ", userId=" + userId + ", userPassword=" + userPassword + ", userEmail=" + userEmail
+				+ "]";
+	}
 }

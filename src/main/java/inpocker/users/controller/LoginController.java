@@ -16,6 +16,7 @@ import inpocker.users.model.User;
 public class LoginController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		if (!User.isCorrectLogin(req.getParameter("userId"), req.getParameter("userPassword"))) {
 			resp.sendRedirect("/");
 			return;

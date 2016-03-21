@@ -97,11 +97,10 @@
 
 				<div id="userPassword-container">
 					<label for="userPassword">Password</label> <br /> <input
-						type="password" placeholder="Input Password" name="loginUserPassword"
+						type="password" placeholder="Input Password" name="userPassword"
 						id="loginUserPassword"> <br /> <span class="warn">Please
 						input password</span>
 				</div>
-                <div id='test'>test</div>
 				<div id="loginSubmit">
 					<button type="submit">Login</button>
 				</div>
