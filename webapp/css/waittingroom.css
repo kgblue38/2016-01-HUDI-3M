@@ -1,5 +1,5 @@
 body {
-	background: url("background.jpg") no-repeat fixed;
+	background: url("/image/background.jpg") no-repeat fixed;
     background-size: 100% auto;
 	background-size: cover;
 	width: 100%;
@@ -47,7 +47,7 @@ display:inline-block;
 	height: 60%;
 	/*	border:1px solid black;
 	box-sizing:border-box;*/
-	background: url("avartar1.png") no-repeat center center;
+	background: url("/image/avartar1.png") no-repeat center center;
 	/*   background-size: 100% auto;
 	background-size: cover;*/
 	display: block;
@@ -91,7 +91,7 @@ margin-left: 5%;
 	width: 100%;
 	height: 60%;
 	border:1px solid black;
-	background: url("chat.png") no-repeat center center;
+	background: url("/image/chat.png") no-repeat center center;
 	}
 
 	.middle_area_box .start_button {
@@ -120,7 +120,7 @@ float: right;
 	height: 60%;
 	/*	border:1px solid black;
 	box-sizing:border-box;*/
-	background: url("avartar2.png") no-repeat center center;
+	background: url("/image/avartar2.png") no-repeat center center;
 	/*   background-size: 100% auto;
 	background-size: cover;*/
 	}

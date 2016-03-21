@@ -11,7 +11,7 @@ public class WebServerLauncher {
         Tomcat tomcat = new Tomcat();
         String webPort = System.getenv("PORT");
         if(webPort == null || webPort.isEmpty()) {
-            webPort = "8080";
+            webPort = "6070";
         }
          
         tomcat.setPort(Integer.valueOf(webPort));
