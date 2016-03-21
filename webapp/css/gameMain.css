@@ -9,7 +9,7 @@
         body{
             margin: 0;
             display: block;
-            background: url("image/background.jpg") no-repeat fixed;
+            background: url("/image/background.jpg") no-repeat fixed;
     background-size: 100% auto;
 	background-size: cover;
 
@@ -45,7 +45,7 @@
                     margin-left: 2%;
                     margin-top: 8px;
                     line-height: 80px;
-                  /*  background-image: url('avartar_in_circle.png') no-repeat;
+                  /*  background-/image: url('avartar_in_circle.png') no-repeat;
                     background-size: 80px 80px;*/
         /*            border-radius: 100%; */
 
@@ -61,7 +61,7 @@
 
       
                  
-                  /*  background-image: url('avartar_in_circle.png') no-repeat;
+                  /*  background-/image: url('avartar_in_circle.png') no-repeat;
                     background-size: 80px 80px;*/
         /*            border-radius: 100%; */
 
@@ -316,7 +316,7 @@
                 padding-left:10%; 
                 position: relative;
                 /*border:1px solid black;*/
-                background-image: url("image/footerCard.png");
+                background-image: url("/image/footerCard.png");
                 background-repeat: no-repeat;
              /*   background-attachment: fixed;*/
 
