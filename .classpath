@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-<<<<<<< HEAD
-	<classpathentry including="**/*.java" kind="src" path="src/main/java"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="var" path="M2_REPO/junit/junit/3.8.1/junit-3.8.1.jar"/>
-	<classpathentry kind="var" path="M2_REPO/mysql/mysql-connector-java/5.1.38/mysql-connector-java-5.1.38.jar"/>
-	<classpathentry kind="lib" path="lib/ecj-4.4.2.jar"/>
-	<classpathentry kind="lib" path="lib/tomcat-dbcp.jar"/>
-	<classpathentry kind="lib" path="lib/tomcat-embed-core.jar"/>
-	<classpathentry kind="lib" path="lib/tomcat-embed-el.jar"/>
-	<classpathentry kind="lib" path="lib/tomcat-embed-jasper.jar"/>
-	<classpathentry kind="lib" path="lib/tomcat-embed-logging-juli.jar"/>
-	<classpathentry kind="lib" path="lib/tomcat-embed-logging-log4j.jar"/>
-	<classpathentry kind="lib" path="lib/tomcat-embed-websocket.jar"/>
-	<classpathentry kind="output" path="target/classes"/>
-</classpath>
-=======
   <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
   <classpathentry kind="src" path="src/main/resources" excluding="**/*.java"/>
   <classpathentry kind="output" path="webapp/WEB-INF/classes"/>
@@ -40,4 +24,3 @@
   <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/embed/tomcat-embed-el/8.0.15/tomcat-embed-el-8.0.15.jar" sourcepath="M2_REPO/org/apache/tomcat/embed/tomcat-embed-el/8.0.15/tomcat-embed-el-8.0.15-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/eclipse/jdt/core/compiler/ecj/4.4/ecj-4.4.jar" sourcepath="M2_REPO/org/eclipse/jdt/core/compiler/ecj/4.4/ecj-4.4-sources.jar"/>
 </classpath>
->>>>>>> origin/master

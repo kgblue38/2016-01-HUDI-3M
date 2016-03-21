@@ -18,6 +18,7 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		if (!User.isCorrectLogin(req.getParameter("userId"), req.getParameter("userPassword"))) {
 			resp.sendRedirect("/");
+			return;
 		}
 		UserDao userDao = new UserDao();
 		User user = userDao.findUserById(req.getParameter("userId"));
