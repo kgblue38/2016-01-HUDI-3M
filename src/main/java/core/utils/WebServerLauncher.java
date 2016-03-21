@@ -1,8 +1,7 @@
-package core;
+package core.utils;
 
 import java.io.File;
 
-import org.apache.catalina.LifecycleException;
 import org.apache.catalina.connector.Connector;
 import org.apache.catalina.startup.Tomcat;
 
