@@ -8,26 +8,32 @@ var SIGNUP = (function() {
     var validationMsg = {
         userId: {
             successMsg: "Id Success!",
-            errorMsg: "6~20 letters starting alphabet"
+            errorMsg: "6~20 letters starting alphabet",
+            valid: false
         },
         userEmail: {
             successMsg: "Email Success!",
-            errorMsg: "Wrong email format"
+            errorMsg: "Wrong email format",
+            valid: false
         },
         userPassword: {
             successMsg: "Password Success!",
-            errorMsg: "6~20 alphbets with number"
+            errorMsg: "6~20 alphbets with number",
+            valid: false
         },
         passwordConfirm: {
             successMsg: "Matched Password!",
-            errorMsg: "Unmatched Password"
+            errorMsg: "Unmatched Password",
+            valid: false
         }
     };
 
     function getValidationMsg(eTarget, validationRegex) {
         if (validationRegex.test(eTarget.value)) {
+        	validationMsg[eTarget.id].valid = true;
             return validationMsg[eTarget.id].successMsg;
         }
+        validationMsg[eTarget.id].valid = false;
         return validationMsg[eTarget.id].errorMsg;
     }
     function showValidationMsg(eTarget, validationMsg) {
@@ -56,10 +62,22 @@ var SIGNUP = (function() {
         var validationMsg = getValidationMsg(eTarget, validationRegex);
         showValidationMsg(eTarget, validationMsg);
     }
+    
+    function canSubmit() {
+		var valid = validationMsg.userId.valid && validationMsg.userEmail.valid && validationMsg.userPassword.valid && validationMsg.passwordConfirm.valid;
+		console.log(valid);
+		return valid;
+	}
+	function checkSubmit(e) {
+		if (!canSubmit()) {
+			e.preventDefault();
+		}
+	}
 
-    //TODO ajax 통신 따로 분리하기
+    // TODO ajax 통신 따로 분리하기
     function init() {
         $("#signup-container").on('input', validateSignUp);
+        $('.signUpForm').on('submit', checkSubmit);
         $(".idConfirm").on('click', function(e) {
             var testUserId = "hello";
             var testPassword = "world";

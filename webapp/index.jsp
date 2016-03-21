@@ -52,7 +52,7 @@
 			<h2>Sign Up</h2>
 		</div>
 		<!-- <form class="form" action="/form_action.jsp" method="post"> -->
-		<form class="form" action="/users/create" method="post">
+		<form class="signUpForm" action="/users/create" method="post">
 			<div id="signup-container">
 				<div class="userId">
 					<label for="userId" class="required">UserId</label> </br> <input
@@ -62,7 +62,7 @@
 				</div>
 				<div class="userPassword">
 					<label for="userPassword" class="required">Password</label></br> <input
-						type="password" placeholder="Input Password" name="userPassword"
+						type="password" placeholder="Input Password" name="signUpUserPassword"
 						id="userPassword"></input>
 				</div>
 				<div class="passwordConfirm">
@@ -75,7 +75,7 @@
 						type="email" placeholder="Input Email" name="userEmail"
 						id="userEmail">
 				</div>
-				<div class="signUpSubmit">
+				<div id="signUpSubmit">
 					<button type="submit">Sign up</button>
 				</div>
 				<br />
@@ -87,26 +87,26 @@
 		<div class="box-header">
 			<h2>LogIn</h2>
 		</div>
-		<form class="form" action="/users/login" method="post">
+		<form class="loginForm" action="/users/login" method="post">
 			<div id="login-container">
 				<div id="id-container">
 					<label for="userId">UserId</label> <br /> <input type="text"
-						placeholder="Input Id" name="userId" id="userId"> <br />
+						placeholder="Input Id" name="userId" id="loginUserId"> <br />
 					<span class="warn">Please input id</span>
 				</div>
 
 				<div id="userPassword-container">
 					<label for="userPassword">Password</label> <br /> <input
-						type="password" placeholder="Input Password" name="userPassword"
-						id="userPassword"> <br /> <span class="warn">Please
+						type="password" placeholder="Input Password" name="loginUserPassword"
+						id="loginUserPassword"> <br /> <span class="warn">Please
 						input password</span>
 				</div>
+                <div id='test'>test</div>
 				<div id="loginSubmit">
 					<button type="submit">Login</button>
 				</div>
 				<br />
 		</form>
-		<a href="#"><p class="small">Forgot your password?</p></a>
 	</div>
 
 	<!-- <script type="text/javascript" src="/js/index.js"></script>  -->
