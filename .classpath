@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+<<<<<<< HEAD
 	<classpathentry including="**/*.java" kind="src" path="src/main/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="var" path="M2_REPO/junit/junit/3.8.1/junit-3.8.1.jar"/>
@@ -14,3 +15,29 @@
 	<classpathentry kind="lib" path="lib/tomcat-embed-websocket.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
+=======
+  <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
+  <classpathentry kind="src" path="src/main/resources" excluding="**/*.java"/>
+  <classpathentry kind="output" path="webapp/WEB-INF/classes"/>
+  <classpathentry kind="var" path="M2_REPO/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar" sourcepath="M2_REPO/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+  <classpathentry kind="var" path="M2_REPO/junit/junit/4.11/junit-4.11.jar" sourcepath="M2_REPO/junit/junit/4.11/junit-4.11-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" sourcepath="M2_REPO/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/ch/qos/logback/logback-classic/1.1.2/logback-classic-1.1.2.jar" sourcepath="M2_REPO/ch/qos/logback/logback-classic/1.1.2/logback-classic-1.1.2-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/ch/qos/logback/logback-core/1.1.2/logback-core-1.1.2.jar" sourcepath="M2_REPO/ch/qos/logback/logback-core/1.1.2/logback-core-1.1.2-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.7.6/slf4j-api-1.7.6.jar" sourcepath="M2_REPO/org/slf4j/slf4j-api/1.7.6/slf4j-api-1.7.6-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/fasterxml/jackson/core/jackson-databind/2.4.4/jackson-databind-2.4.4.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/fasterxml/jackson/core/jackson-annotations/2.4.0/jackson-annotations-2.4.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/fasterxml/jackson/core/jackson-core/2.4.4/jackson-core-2.4.4.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/commons/commons-lang3/3.3.2/commons-lang3-3.3.2.jar" sourcepath="M2_REPO/org/apache/commons/commons-lang3/3.3.2/commons-lang3-3.3.2-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/jstl/jstl/1.2/jstl-1.2.jar"/>
+  <classpathentry kind="var" path="M2_REPO/commons-dbcp/commons-dbcp/1.2.2/commons-dbcp-1.2.2.jar"/>
+  <classpathentry kind="var" path="M2_REPO/commons-pool/commons-pool/1.3/commons-pool-1.3.jar" sourcepath="M2_REPO/commons-pool/commons-pool/1.3/commons-pool-1.3-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/mysql/mysql-connector-java/5.1.38/mysql-connector-java-5.1.38.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/embed/tomcat-embed-core/8.0.15/tomcat-embed-core-8.0.15.jar" sourcepath="M2_REPO/org/apache/tomcat/embed/tomcat-embed-core/8.0.15/tomcat-embed-core-8.0.15-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/embed/tomcat-embed-logging-juli/8.0.15/tomcat-embed-logging-juli-8.0.15.jar" sourcepath="M2_REPO/org/apache/tomcat/embed/tomcat-embed-logging-juli/8.0.15/tomcat-embed-logging-juli-8.0.15-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/embed/tomcat-embed-jasper/8.0.15/tomcat-embed-jasper-8.0.15.jar" sourcepath="M2_REPO/org/apache/tomcat/embed/tomcat-embed-jasper/8.0.15/tomcat-embed-jasper-8.0.15-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/embed/tomcat-embed-el/8.0.15/tomcat-embed-el-8.0.15.jar" sourcepath="M2_REPO/org/apache/tomcat/embed/tomcat-embed-el/8.0.15/tomcat-embed-el-8.0.15-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jdt/core/compiler/ecj/4.4/ecj-4.4.jar" sourcepath="M2_REPO/org/eclipse/jdt/core/compiler/ecj/4.4/ecj-4.4-sources.jar"/>
+</classpath>
+>>>>>>> origin/master

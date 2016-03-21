@@ -1,4 +1,4 @@
-package inpoker;
+package core;
 
 import java.io.File;
 
