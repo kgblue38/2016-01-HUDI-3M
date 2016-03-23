@@ -26,12 +26,15 @@ public class LoginController extends HttpServlet {
 	
 	@RequestMapping(value = "/users/login", method = RequestMethod.POST)
 	public String doPost(HttpServletRequest req) {
+		String userId = req.getParameter("userId");
+		String userPassword = req.getParameter("userPassword");
+		User user = userDao.findUserById(userId);
 		
-		if (!User.isCorrectLogin(req.getParameter("userId"), req.getParameter("userPassword"))) {
+		if (user == null || !userId.equals(user.getUserId()) || !userPassword.equals(user.getUserPassword())) {
 			return "redirect:/";
 		}
-		User user = userDao.findUserById(req.getParameter("userId"));
 		req.getSession().setAttribute("user", user);
 		return "redirect:/wait/roomForm";
 	}
 }
+ 
