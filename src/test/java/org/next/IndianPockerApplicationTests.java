@@ -7,12 +7,10 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = IndianPockerApplication.class)
+@SpringApplicationConfiguration(classes = IndianPokerApplication.class)
 @WebAppConfiguration
 public class IndianPockerApplicationTests {
-
 	@Test
 	public void contextLoads() {
 	}
-
 }
