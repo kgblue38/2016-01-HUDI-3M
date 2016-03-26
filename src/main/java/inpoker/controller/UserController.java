@@ -59,7 +59,7 @@ public class UserController {
 			return "redirect:/";
 		 }
 		 
-		userRepository.valueBound(req.getSession(), userId);
+		userRepository.valueBound(userId, req.getSession());
 			
 		User user = userDao.findUserById(userId);
 		req.getSession().setAttribute("user", user);

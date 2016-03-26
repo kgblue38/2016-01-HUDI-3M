@@ -17,15 +17,15 @@ public class UserRepository {
 	}
 
 	// 로그인한 접속자를 담기위한 해시테이블
-	private static Hashtable<HttpSession, String> loginUsers = new Hashtable<HttpSession, String>();
+	private static Hashtable<String, HttpSession> loginUsers = new Hashtable<String, HttpSession>();
 
-	public void valueBound(HttpSession session, String userId) {
+	public void valueBound(String userId, HttpSession session) {
 
 		// session값을 put한다.
-		loginUsers.put(session, userId);
+		loginUsers.put(userId, session);
 		System.out.println(userId + "님이 로그인 하셨습니다.");
 		System.out.println("현재 접속자 수 : " + getUserCount());
-		System.out.println(session + "," + userId );
+		System.out.println(session + " : " + userId );
 		
 	}
 	
