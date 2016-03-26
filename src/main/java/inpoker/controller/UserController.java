@@ -27,9 +27,8 @@ public class UserController {
 
 	@Autowired
 	UserDao userDao; 
-
-	ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
-	UserRepository userRepository = context.getBean("userrepository", UserRepository.class);
+	
+	UserRepository userRepository = UserRepository.getInstance();
 	
 	// http://egloos.zum.com/springmvc/v/509029 @Valid 개념, BindingResult에 Valid해준거 자동 처리해서 에러 여부 확인 가능
 	// http://springmvc.egloos.com/535572 @ModelAttribute 개념

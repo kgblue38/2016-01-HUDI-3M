@@ -121,8 +121,9 @@ var SIGNUP = (function() {
 				alert("idConfirm ajax 실패!");
 			});
 		});
+		
 		$('.signUpForm').on('submit', submitCheck);
-//		$("#signup-container button[type=submit]").on('click', submitCheck);
+	//	$("#signup-container button[type=submit]").on('click', submitCheck);
 	}
 
 	return {
