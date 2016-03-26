@@ -38,6 +38,7 @@
 	<%
 		Object userId = session.getAttribute("userId");
 	%>
+		
 		<c:choose>
 			<c:when test="${not empty userId}">
 				<div class="user1_area">

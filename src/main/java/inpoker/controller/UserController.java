@@ -4,6 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -11,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import core.SpringConfig;
+import core.UserRepository;
 import inpoker.users.dao.UserDao;
 import inpoker.users.model.User;
 import inpoker.users.model.UserLoginFailedException;
@@ -19,8 +24,12 @@ import inpoker.users.model.UserLoginFailedException;
 @RequestMapping("/user") // Class에서 RequestMapping해주면 디폴트 URL로 지정됨 
 @Controller
 public class UserController {
+
 	@Autowired
-	UserDao userDao;
+	UserDao userDao; 
+
+	ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+	UserRepository userRepository = context.getBean("userrepository", UserRepository.class);
 	
 	// http://egloos.zum.com/springmvc/v/509029 @Valid 개념, BindingResult에 Valid해준거 자동 처리해서 에러 여부 확인 가능
 	// http://springmvc.egloos.com/535572 @ModelAttribute 개념
@@ -38,11 +47,21 @@ public class UserController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST) 
 	public String login(@RequestParam String userId, @RequestParam String userPassword, HttpServletRequest req) {
+		
+
+		
 		try {
-			isCorrectLogin(userId, userPassword);
+			isCorrectLogin(userId, userPassword);		
 		} catch (UserLoginFailedException e) {
 			return "redirect:/";
 		}
+				
+		 if(userRepository.getUserCount() >= 2){
+			return "redirect:/";
+		 }
+		 
+		userRepository.valueBound(req.getSession(), userId);
+			
 		User user = userDao.findUserById(userId);
 		req.getSession().setAttribute("user", user);
 		return "redirect:/wait/roomForm";
