@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="inpoker.controller.UserController"%>
 <%@ page import="core.UserRepository"%>
@@ -33,61 +32,50 @@
 
 	<%
 		UserRepository ur = UserRepository.getInstance();
-		Object user = session.getAttribute("user");
-		
 		UserController uc = new UserController();
-				
 		pageContext.setAttribute("userId1", uc);
 		pageContext.setAttribute("userId2", uc);
-		
+		pageContext.setAttribute("ur", ur);
 	%>
 
-	<%
-		if (ur.getUserCount() == 1) {
-	%>
-	<c:set var="user1" value="${uc.getUserId1()}" />
+	<c:choose>
+		<c:when test="${ur.getUserCount() == 1}">
+			<div class="user1_area">
+				<div class="user1_avartar"></div>
+				<div class="user1_ready_button">ready</div>
+				<div class="user1_info">${userId1.getUserId1()}</div>
+			</div>
+		</c:when>
 
-	<div class="user1_area">
-		<div class="user1_avartar"></div>
-		<div class="user1_ready_button">ready</div>
-		<div class="user1_info">${userId1.getUserId1()}</div>
+		<c:when test="${ur.getUserCount() == 2}">
+			<div class="user1_area">
+				<div class="user1_avartar"></div>
+				<div class="user1_ready_button">ready</div>
+				<div class="user1_info">${userId1.getUserId1()}</div>
+			</div>
 
-	</div>
+			<div class="middle_area_box">
+				<div class="chat_box"></div>
+				<div class="start_button">START</div>
+			</div>
 
-	<%
-		} else {
-	%>
-	
-	<div class="user1_area">
-		<div class="user1_avartar"></div>
-		<div class="user1_ready_button">ready</div>
-		<div class="user1_info">${userId1.getUserId1()}</div>
+			<div class="user2_area">
+				<div class="user2_avartar"></div>
+				<div class="user2_ready_button">ready</div>
+				<div class="user2_info">${userId1.getUserId2()}</div>
+			</div>
+		</c:when>
 
-	</div>
+		<c:otherwise>
+			<h1>로그인된 유저가 없습니다.</h1>
+		</c:otherwise>
 
-	<div class="middle_area_box">
-		<div class="chat_box"></div>
-		<div class="start_button">START</div>
-	</div>
-
-	<div class="user2_area">
-		<div class="user2_avartar"></div>
-		<div class="user2_ready_button">ready</div>
-		<div class="user2_info">${userId1.getUserId2()}</div>
-	</div>
-
-	<%
-		}
-	%>
-
+	</c:choose>
 
 
 	<script type="text/javascript" src="/js/waittingroom.js"></script>
 	<script type="text/javascript">
-		/* var test = setInterval(function() {
-			alert('http://rankingis.com');
-		}, 3000); */
-		/* 3초 마다 경고창으로 해당문구를 출력함 */
+		
 	</script>
 </body>
 </html>
