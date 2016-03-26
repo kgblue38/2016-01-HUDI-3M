@@ -1,4 +1,4 @@
-package inpoker.wait.controller;
+package inpoker.controller;
 
 import java.io.IOException;
 
@@ -12,11 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-//@WebServlet("/wait/roomForm")
 @Controller
-public class WaitRoomFormController {
-	@RequestMapping("/wait/roomForm")
-	public String goRoomForm() throws ServletException, IOException {
-		return "/watingroom.html";
+public class HomeController {
+	@RequestMapping("")
+	public String showHomePage() {
+		return "/index.jsp";
 	}
 }

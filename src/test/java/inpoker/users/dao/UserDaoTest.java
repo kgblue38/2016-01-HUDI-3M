@@ -4,11 +4,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.next.IndianPokerApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
+import core.IndianPokerApplication;
 import inpoker.users.dao.UserDao;
 import inpoker.users.model.User;
 
@@ -17,7 +18,8 @@ import inpoker.users.model.User;
 public class UserDaoTest {
 	@Autowired
 	private UserDao userDao;
-
+	
+	@Transactional
 	@Test
 	public void addUser() throws Exception {
 		User expected = new User("testUserte", "test123", "a4@a.com");

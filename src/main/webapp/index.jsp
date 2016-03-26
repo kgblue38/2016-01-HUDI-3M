@@ -24,7 +24,9 @@
 
 	<c:if test="${not empty errorMessage}">
 		<div class="control-group">
-			<label class="error"> <% out.println(errorMessage); %></label>
+			<label class="error"> <%
+ 	out.println(errorMessage);
+ %></label>
 		</div>
 	</c:if>
 
@@ -35,7 +37,7 @@
 	<c:choose>
 		<c:when test="${not empty userId}">
 			<div id="logout">
-				<a href="/users/logout">logout</a>
+				<a href="/user/logout">logout</a>
 			</div>
 			<div id="make">
 				<a href="/play.jsp">play 
@@ -52,18 +54,23 @@
 			<h2>Sign Up</h2>
 		</div>
 		<!-- <form class="form" action="/form_action.jsp" method="post"> -->
-		<form class="signUpForm" action="/users/create" method="post">
+		<form class="signUpForm" action="/user" method="post">
 			<div id="signup-container">
+			<!-- 	<div class="pid">
+					<label for="pid" class="required"></label> </br> 
+					<input type="hidden" name="pid" id="pid" value=0></input>
+					</br>
+				</div> -->
 				<div class="userId">
-					<label for="userId" class="required">UserId</label> </br> <input
-						type="text" placeholder="Input Id" name="userId" id="userId"></input>
+					<label for="userId" class="required">UserId</label> </br> 
+					<input type="text" placeholder="Input Id" name="userId" id="userId"></input>
 					</br>
 					<button class="idConfirm">아이디 확인</button>
 				</div>
 				<div class="userPassword">
 					<label for="userPassword" class="required">Password</label></br> <input
-						type="password" placeholder="Input Password" name="signUpUserPassword"
-						id="userPassword"></input>
+						type="password" placeholder="Input Password"
+						name="userPassword" id="userPassword"></input>
 				</div>
 				<div class="passwordConfirm">
 					<label for="passwordConfirm" class="required">Confirm</label> </br> <input
@@ -87,7 +94,7 @@
 		<div class="box-header">
 			<h2>LogIn</h2>
 		</div>
-		<form class="loginForm" action="/users/login" method="post">
+		<form class="loginForm" action="/user/login" method="post">
 			<div id="login-container">
 				<div id="id-container">
 					<label for="userId">UserId</label> <br /> <input type="text"
