@@ -17,6 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class WaitRoomFormController {
 	@RequestMapping("/roomForm")
 	public String goRoomForm() throws ServletException, IOException {
-		return "/watingroom.html";
+		return "/waittingroom.jsp";
 	}
 }
