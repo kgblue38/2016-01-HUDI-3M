@@ -56,7 +56,7 @@
 
 			<div class="middle_area_box">
 				<div class="chat_box"></div>
-				<div class="start_button">START</div>
+				<div class="start_button"><a href="/gameMain.jsp">START</a></div>
 			</div>
 
 			<div class="user2_area">

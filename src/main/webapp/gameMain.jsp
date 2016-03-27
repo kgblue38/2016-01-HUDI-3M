@@ -1,13 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="inpoker.controller.UserController"%>
+<%@ page import="core.UserRepository"%>
+<%@ page import="inpoker.users.model.User"%>
+<%@ page import="inpoker.users.dao.UserDao"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
       <style type="text/css">      
         </style>
-        <link rel="stylesheet" type="text/css" href="css/gameMain.css">
+        <link rel="stylesheet" type="text/css" href="/css/gameMain.css">
         <script type="text/javascript"
 			src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script type="text/javascript"
@@ -20,19 +24,46 @@
         
     </head>
     <body>
-         <div class="header">
+    <%
+		UserRepository ur = UserRepository.getInstance();
+		UserController uc = new UserController();
+		pageContext.setAttribute("userId1", uc);
+		pageContext.setAttribute("userId2", uc);
+		pageContext.setAttribute("ur", ur);
+	%>
+	
+	<c:choose>
+		<c:when test="${ur.getUserCount() == 1}">
+			<div class="header">
             <div class="playerA">
                  <div class="playerAAvatar"><img src="image/avartar_in_circle.png"></div>
-                 <div class="playerAInformation">Id: Junnie </br> 계급: 루비</div>
+                 <div class="playerAInformation">Id: ${userId1.getUserId1()} </br> 계급: 루비</div>
                  <div class="playerAScore">53(점)</div>
             </div>
-               
-            <div class="playerB">
+		</c:when>
+
+		<c:when test="${ur.getUserCount() == 2}">
+			<div class="header">
+            <div class="playerA">
+                 <div class="playerAAvatar"><img src="image/avartar_in_circle.png"></div>
+                 <div class="playerAInformation">Id: ${userId1.getUserId1()} </br> 계급: 루비</div>
+                 <div class="playerAScore">53(점)</div>
+            </div>
+
+			<div class="playerB">
                 <div class="playerBAvatar"><img src="image/avartar2_in_circle.png"></div>
-                <div class="playerBInformation">Id: Chiho </br> 계급: 사파이어</div>
+                <div class="playerBInformation">Id: ${userId1.getUserId2()} </br> 계급: 사파이어</div>
                 <div class="playerBScore"> 점수
                 </div>
             </div>
+		</c:when>
+
+		<c:otherwise>
+			<h1>로그인된 유저가 없습니다.</h1>
+		</c:otherwise>
+
+	</c:choose>
+         
        </div>
 
        <div class="header_line"></div>
@@ -85,8 +116,8 @@
             <div class="footerCard">
             </div>
        </div>
-       <script src="js/gameMain.js"></script>
-       <script src="js/remodal.js"></script>
+       <script src="/js/gameMain.js"></script>
+       <script src="/js/remodal.js"></script>
 
     </body>
 </html>

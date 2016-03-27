@@ -5,7 +5,7 @@ var CARD = (function(){
 	var template_up_1 = Handlebars.compile(cardTemplate_1);
 	var resultTemplate = "<p>PlayerA got {{card_NumberA}} Space<br>"+
 						"PlayerB got {{card_NumberB}} Heart</p>";
-	var resultHeaderTemplate = "<h1>Player{{winner}}</h1>";
+	var resultHeaderTemplate = "<h1>{{winner}}</h1>";
 	var template_up_result = Handlebars.compile(resultTemplate);
 	var template_up_resultHeader = Handlebars.compile(resultHeaderTemplate);
 
@@ -25,7 +25,7 @@ var CARD = (function(){
 			$(this).css('background-image', 'url("image/card/'+random_card_1+'h.png")');
 		});
 		if(random_card>random_card_1){
-				var result = "A wins.";
+				var result = "Player A wins.";
 				$('#result').remove();
 				$('.playerA').delay(1200).queue(function(){
 					$(this).css('border', '5px solid red');
@@ -34,13 +34,13 @@ var CARD = (function(){
 					"card_NumberB":random_card_1})));
 				$(".remodal h1").append($(template_up_resultHeader({"winner":result})));
 		}else if (random_card == random_card_1){
-				var result = "s draws.";
+				var result = "draw.";
 				$('#result').remove();
 				$(".remodal p").append($(template_up_result({"card_NumberA":random_card, 
 					"card_NumberB":random_card_1})));
 				$(".remodal h1").append($(template_up_resultHeader({"winner":result})));
 		}else{
-				var result = "B wins."
+				var result = "Player B wins."
 				$('#result').remove();
 				$('.playerB').delay(1200).queue(function(){
 					$(this).css('border', '5px solid red');
