@@ -1,4 +1,4 @@
-package inpoker.users.dao;
+package inpoker.user.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import inpoker.users.model.User;
+import inpoker.user.model.User;
 
 @Repository
 public class UserDao {

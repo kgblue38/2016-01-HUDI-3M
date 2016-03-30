@@ -1,6 +1,6 @@
 package inpoker.room.model;
 
-import inpoker.users.model.User;
+import inpoker.user.model.User;
 
 public class RoomUser {
 	private User user;
@@ -15,7 +15,15 @@ public class RoomUser {
 	public RoomUser(User user) {
 		this(user, "notReady");
 	}
-
+	
+	public String getUserId() {
+		return user.getUserId();
+	}
+	
+	public boolean isUserReady() {
+		return userStatus.equals("ready");
+	}
+	
 	public User getUser() {
 		return user;
 	}

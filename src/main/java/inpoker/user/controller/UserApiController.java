@@ -1,4 +1,4 @@
-package inpoker.controller;
+package inpoker.user.controller;
 
 import java.util.*;
 
@@ -9,17 +9,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import inpoker.users.dao.UserDao;
+import inpoker.user.dao.UserDao;
 
-// ajax 통신 로직은 여기서 관리하다가 나중에 좀 분리할 예정
 @Controller
-@RequestMapping("/api")
-public class ApiController {
+@RequestMapping("/api/user")
+public class UserApiController {
 	@Autowired
 	UserDao userDao;
 	
 	//http://www.nextree.co.kr/p11205/, 
-	@RequestMapping(value = "/user", method = RequestMethod.POST)
+	@RequestMapping(value = "", method = RequestMethod.POST)
 	public @ResponseBody Map<String, String> checkUserExist(@RequestParam String userId) {
 		Map<String, String> userExist = new HashMap<>();
 		userDao.findUserById(userId);

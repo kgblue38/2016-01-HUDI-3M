@@ -1,4 +1,4 @@
-package inpoker.controller;
+package inpoker.room.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import inpoker.users.model.Users;
+import inpoker.user.model.Users;
 
 @Controller
 @RequestMapping("/room")

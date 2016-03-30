@@ -1,4 +1,4 @@
-package inpoker.users.model;
+package inpoker.user.model;
 
 import java.util.HashMap;
 import java.util.Map;

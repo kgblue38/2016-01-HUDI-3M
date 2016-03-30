@@ -1,4 +1,4 @@
-package inpoker.controller;
+package inpoker.user.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import inpoker.users.dao.UserDao;
-import inpoker.users.model.User;
-import inpoker.users.model.UserLoginFailedException;
-import inpoker.users.model.Users;
+import inpoker.user.dao.UserDao;
+import inpoker.user.model.User;
+import inpoker.user.model.UserLoginFailedException;
+import inpoker.user.model.Users;
 
 @RequestMapping("/user")
 @Controller
@@ -41,10 +41,6 @@ public class UserController {
 		try {
 			isCorrectLogin(userId, userPassword);
 		} catch (UserLoginFailedException e) {
-			return "redirect:/";
-		}
-
-		if (users.getUserCount() >= 2) {
 			return "redirect:/";
 		}
 		

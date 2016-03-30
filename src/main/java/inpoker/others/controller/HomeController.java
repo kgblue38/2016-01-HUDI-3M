@@ -1,4 +1,4 @@
-package inpoker.controller;
+package inpoker.others.controller;
 
 import java.io.IOException;
 

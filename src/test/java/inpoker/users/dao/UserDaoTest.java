@@ -10,8 +10,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import core.IndianPokerApplication;
-import inpoker.users.dao.UserDao;
-import inpoker.users.model.User;
+import inpoker.user.dao.UserDao;
+import inpoker.user.model.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(IndianPokerApplication.class)

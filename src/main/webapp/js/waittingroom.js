@@ -6,7 +6,7 @@ var TODO = (function(window){
 		$(".user2_ready_button").on("click", user2_click_ready_button);
 	}
 
-
+	
 
 	function user1_click_ready_button(){
 		$(".user1_ready_button").css({

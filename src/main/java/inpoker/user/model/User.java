@@ -1,9 +1,9 @@
-package inpoker.users.model;
+package inpoker.user.model;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
-import inpoker.users.dao.UserDao;
+import inpoker.user.dao.UserDao;
 
 public class User {
 	private int pid;
