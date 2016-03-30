@@ -22,10 +22,10 @@ public class User {
 	// Qeustion .은 모든키 다 match되는 메타문자라서 js에서는 \.로 표현하는데 에러나서 \\.로 적었는데 맞나요?
 	// hello@naver.com 여기서 .com 이 부분 매칭시키고 싶은데
 	// @NotNull
-	// @Pattern(regexp = "/^[a-z0-9_+.-]+@([a-z0-9-]\\.)+[a-z0-9]{2,4}$/",
+//	 @Pattern(regexp = "/^[a-z0-9_+.-]+@([a-z0-9-]\\.)+[a-z0-9]{2,4}$/",
 	// message = "Wrong email format")
 	private String userEmail;
-
+	
 	public User() {
 	}
 

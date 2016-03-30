@@ -7,15 +7,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import core.UserRepository;
+import inpoker.users.model.Users;
 
 @Controller
-@RequestMapping("/wait")
-public class WaitRoomFormController {
+@RequestMapping("/room")
+public class RoomController {
 
-	@RequestMapping("/roomForm")
-	public String goRoomForm() throws ServletException, IOException {
-
+	@RequestMapping("/channel")
+	public String goChannel() {
+		return "/channel.jsp";
+	}
+	
+	@RequestMapping("/wait")
+	public String goWait() {
 		return "/waittingroom.jsp";
 	}
 }

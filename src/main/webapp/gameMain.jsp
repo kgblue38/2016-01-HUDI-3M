@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="inpoker.controller.UserController"%>
-<%@ page import="core.UserRepository"%>
+<%@ page import="core.Users"%>
 <%@ page import="inpoker.users.model.User"%>
 <%@ page import="inpoker.users.dao.UserDao"%>
 <!DOCTYPE html>
@@ -24,13 +24,13 @@
         
     </head>
     <body>
-    <%
+<%--     <%
 		UserRepository ur = UserRepository.getInstance();
 		UserController uc = new UserController();
 		pageContext.setAttribute("userId1", uc);
 		pageContext.setAttribute("userId2", uc);
 		pageContext.setAttribute("ur", ur);
-	%>
+	%> --%>
 	
 	<c:choose>
 		<c:when test="${ur.getUserCount() == 1}">

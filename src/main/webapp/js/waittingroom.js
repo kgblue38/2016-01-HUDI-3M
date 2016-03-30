@@ -2,7 +2,6 @@ var TODO = (function(window){
 
 
 	function init(){
-
 		$(".user1_ready_button").on("click", user1_click_ready_button);
 		$(".user2_ready_button").on("click", user2_click_ready_button);
 	}
