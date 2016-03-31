@@ -36,7 +36,7 @@
 			<div class="user1_area">
 				<div class="user1_avartar"></div>
 				<div class="user1_ready_button">ready</div>
-				<div class="user1_info">${userId}</div>
+				<div class="user_info">${userId}</div>
 			</div>
 		</c:when>
 
@@ -44,7 +44,7 @@
 			<div class="user1_area">
 				<div class="user1_avartar"></div>
 				<div class="user1_ready_button">ready</div>
-				<div class="user1_info">${room.waittingUser[0]}</div>
+				<div class="user_info">${room.waittingUser[0]}</div>
 			</div>
 
 			<div class="middle_area_box">
@@ -55,7 +55,7 @@
 			<div class="user2_area">
 				<div class="user2_avartar"></div>
 				<div class="user2_ready_button">ready</div>
-				<div class="user2_info">${room.waittingUser[1]}</div>
+				<div class="user_info">${room.waittingUser[1]}</div>
 			</div>
 		</c:when>
 

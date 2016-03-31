@@ -43,6 +43,10 @@ public class User {
 	public boolean isCorrectLogin(String userId, String userPassword) {
 		return this.userId.equals(userId) && this.userPassword.equals(userPassword);
 	}
+	
+	public boolean isMatchedUserId(String userId) {
+		return this.userId.equals(userId);
+	}
 
 	// 자바빈 규약으로 매핑해주기 위해 GETTER SETTER 구현
 	public void setPid(int pid) {

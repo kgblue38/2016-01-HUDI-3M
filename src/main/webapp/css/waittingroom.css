@@ -90,7 +90,15 @@ box-shadow: 0 0 10px #777777;
 
 		.clicked 
 		{
-			
+			background-color: rgba(82,167,178,0.7);
+			width: 80%;
+			height: 50px;
+			color: white;
+			line-height: 45px;
+			text-align: center;
+			font-size: 25px;
+			border:none;
+			padding-top: 3px;	
 		}
 
 		.user1_area .user1_info{

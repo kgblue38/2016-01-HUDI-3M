@@ -39,6 +39,10 @@ public class RoomUser {
 	public void setUserStatus(String userStatus) {
 		this.userStatus = userStatus;
 	}
+	
+	public boolean isMatchedUserId(String userId) {
+		return user.isMatchedUserId(userId);
+	}
 
 	@Override
 	public String toString() {
