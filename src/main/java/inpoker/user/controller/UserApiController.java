@@ -17,7 +17,6 @@ public class UserApiController {
 	@Autowired
 	UserDao userDao;
 	
-	//http://www.nextree.co.kr/p11205/, 
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public @ResponseBody Map<String, String> checkUserExist(@RequestParam String userId) {
 		Map<String, String> userExist = new HashMap<>();

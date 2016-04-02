@@ -1,5 +1,7 @@
 package inpoker.room.model;
 
+import inpoker.user.model.User;
+
 public class Room {
 	private static int idCount;
 	private int roomId;
@@ -13,6 +15,10 @@ public class Room {
 		this.roomStatus = roomStatus; // start,notStart 상태를 가진다.
 		this.roomUser1 = roomUser1;
 		this.roomUser2 = roomUser2;
+	}
+	
+	public Room(User user1, User user2) {
+		this(new RoomUser(user1), new RoomUser(user2));
 	}
 
 	public Room(RoomUser roomUser1, RoomUser roomUser2) {

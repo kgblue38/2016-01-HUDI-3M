@@ -2,6 +2,7 @@ package inpoker.room.model;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,5 +33,15 @@ public class Rooms {
 	
 	public int getRoomCount() {
 		return createdRooms.size();
+	}
+	
+	//method for test 
+	public Room getRoom() {
+		Room room = null;
+		Set keySet = createdRooms.keySet();
+		for (Object key : keySet) {
+			room = createdRooms.get((String)key);
+		}
+		return room;
 	}
 }
