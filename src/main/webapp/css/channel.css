@@ -1,0 +1,20 @@
+body{
+            margin: 0;
+            display: block;
+            background: url("../image/background.jpg") no-repeat fixed;
+    background-size: 100% auto;
+	background-size: cover;
+
+
+        }
+
+#info{
+	    margin-top: 20px;
+    margin-left: 20px;
+    width: 50%;
+    float: right;
+}
+
+#info tr #avatarTable {
+    width: 15%;
+}
