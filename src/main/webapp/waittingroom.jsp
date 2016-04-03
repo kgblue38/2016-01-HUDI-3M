@@ -29,22 +29,26 @@
 	</div>
 
 	<div class="empty"></div>
+	<c:set value="${sessionScope.user.userId}" var="myUserId" />
+	<c:set value="${room.roomUser1.user.userId}" var="userId1" />
+	<c:set value="${room.roomUser2.user.userId}" var="userId2" />
 	
-		
+	<input type="hidden" name="roomId" value="${room.roomId}" />
+	<input type="hidden" name="myUserId" value="${myUserId}" />
 	<c:choose>
-		<c:when test="${users.getUserCount() == 1}">
+		<c:when test="${not empty room}">
 			<div class="user1_area">
 				<div class="user1_avartar"></div>
 				<div class="user1_ready_button">ready</div>
-				<div class="user_info">${userId}</div>
-			</div>
-		</c:when>
-
-		<c:when test="${users.getUserCount() == 2}">
-			<div class="user1_area">
-				<div class="user1_avartar"></div>
-				<div class="user1_ready_button">ready</div>
-				<div class="user_info">${room.waittingUser[0]}</div>
+				<c:choose>
+					<c:when test= "${myUserId eq userId1}">
+						<div>내 아이디</div>
+					</c:when>
+					<c:otherwise>
+						<div>상대방 아이디</div>
+					</c:otherwise>
+				</c:choose>
+				<div class="user_info">${userId1}</div>
 			</div>
 
 			<div class="middle_area_box">
@@ -55,7 +59,15 @@
 			<div class="user2_area">
 				<div class="user2_avartar"></div>
 				<div class="user2_ready_button">ready</div>
-				<div class="user_info">${room.waittingUser[1]}</div>
+				<c:choose>
+					<c:when test= "${myUserId eq userId2}">
+						<div>내 아이디</div>
+					</c:when>
+					<c:otherwise>
+						<div>상대방 아이디</div>
+					</c:otherwise>
+				</c:choose>
+				<div class="user_info">${userId2}</div>
 			</div>
 		</c:when>
 

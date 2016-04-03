@@ -38,10 +38,14 @@ public class Rooms {
 	//method for test 
 	public Room getRoom() {
 		Room room = null;
-		Set keySet = createdRooms.keySet();
-		for (Object key : keySet) {
-			room = createdRooms.get((String)key);
-		}
+		Object[] temp = createdRooms.values().toArray();
+		room = (Room)temp[0];
 		return room;
+	}
+
+	@Override
+	public String toString() {
+		return "Rooms [getRoomCount()=" + getRoomCount() + ", getRoom()=" + getRoom() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
 }

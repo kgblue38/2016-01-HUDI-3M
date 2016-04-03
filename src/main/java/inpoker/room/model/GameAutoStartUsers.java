@@ -33,9 +33,9 @@ public class GameAutoStartUsers {
 	
 	//make testCase
 	public Room makeRoom() {
-		String[] keyArray = (String[])autoGameUsers.keySet().toArray();
-		User user1 = autoGameUsers.get(keyArray[0]);
-		User user2 = autoGameUsers.get(keyArray[1]);
+		Object[] users = autoGameUsers.values().toArray();
+		User user1 = (User)users[0];
+		User user2 = (User)users[1];
 		Room room = new Room(user1, user2);
 		Rooms.getInstance().addRoom(room);
 		return room;

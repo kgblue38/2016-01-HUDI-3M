@@ -30,6 +30,7 @@ public class RoomController {
 	public String goChannel(Model model, HttpSession session) {
 		// 테스트하기 위해서 그냥 넣음..
 		logger.debug("[Session.User Test] : {}", session.getAttribute("user"));
+		System.out.println(session.getAttribute("user"));
 		GameAutoStartUsers.getInstance().addUser((User)session.getAttribute("user"));
 		model.addAttribute("users", users);
 		model.addAttribute("rooms", rooms);
@@ -39,14 +40,19 @@ public class RoomController {
 	// test Case 
 	@RequestMapping("/wait")
 	public String goWait(HttpSession session, Model model) {
+		System.out.println("in /room/wait");
 		Room room;
+		System.out.println("rooms.getRoomCount() : " + rooms.getRoomCount());
 		if (rooms.getRoomCount() == 0) {
 			room = gameAutoStartUsers.makeRoom();
 		} else {
 			room = Rooms.getInstance().getRoom();
 		}
+		System.out.println(room);
 		logger.debug("room : {}", room);
 //		logger.debug("session.User : {}", session.getAttribute("user"));
+//		logger.debug("session.User : {}", session.getAttribute("user"));
+		System.out.println("session.User : " + session.getAttribute("user"));
 		model.addAttribute("room", room);
 		return "/waittingroom.jsp";
 	}
