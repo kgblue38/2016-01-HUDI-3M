@@ -53,7 +53,7 @@
 
 			<div class="middle_area_box">
 				<div class="chat_box"></div>
-				<div class="start_button"><a href="/gameMain.jsp">START</a></div>
+				<div class="start_button"><a href="/room/game?roomId=${room.roomId}">START</a></div>
 			</div>
 
 			<div class="user2_area">
@@ -72,7 +72,7 @@
 		</c:when>
 
 		<c:otherwise>
-			<h1>로그인된 유저가 없습니다.</h1>
+			<h1>잘못된 경로로 접속하셨습니다.</h1>
 		</c:otherwise>
 
 	</c:choose>

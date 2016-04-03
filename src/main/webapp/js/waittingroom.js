@@ -49,13 +49,19 @@ var TODO = (function(window){
 				"type" : "GET",
 				"data" : data
 			}).done(function(room) {
+
+				if (room.roomStatus === "start") {
+					console.debug("im start");
+					window.location.href = ('/room/game?roomId=' + roomId);
+					return;
+				}
+
 				console.debug("check event done()");
 				changeUserReady($user1Button, getUserStatus(room, user1Id));
 				changeUserReady($user2Button, getUserStatus(room, user2Id));
 				updateStartButton(room);
 			})
-		}
-		
+		},
 	}
 	
 	function updateStartButton(room) {
@@ -89,20 +95,6 @@ var TODO = (function(window){
 			return "notReady";
 		}
 		return "ready";
-	}
-
-	function user1_click_ready_button(){
-//		 $(this).toggleClass('clicked');
-//		 if($(".user2_ready_button").hasClass("clicked")){
-//		 		$(".start_button").css('display','block');
-//		 	}
-	}
-
-		function user2_click_ready_button(){
-//		 $(this).toggleClass('clicked');
-//		 if($(".user2_ready_button").hasClass("clicked")){
-//		 		$(".start_button").css('display','block');
-//		 	}
 	}
 
 	return {

@@ -18,3 +18,8 @@ body{
 #info tr #avatarTable {
     width: 15%;
 }
+
+.panel-heading{
+    background-color: transparent;
+    border-color: #337ab7;
+}

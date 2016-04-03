@@ -7,21 +7,19 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <style type="text/css">
 </style>
-<link rel="stylesheet" type="text/css" href="css/channel.css">
+<link rel="stylesheet" type="text/css" href="/css/channel.css">
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-<link rel="stylesheet" type="text/css" href="lib/bootstrap.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
-	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="/lib/bootstrap.min.css">
+
 
 </head>
 <body>
+
 	<div class="col-md-6 col-md-offset-6">
-		<table class="table" id="info">
+		<table class="table" id="info" style="border-style: solid; border-color: brown; margin-right:10px;">
 			<tr>
 				<th id="avatarTable" rowspan="4">{{avatar]]</th>
 				<td>ID</td>
