@@ -69,7 +69,7 @@
 
                    .header .playerA .playerAInformation{
 
-                    width: 58%;
+                    width: 20%;
                     height: 80px;
                   /*  border:1px solid black;*/
                     float: left;
@@ -81,6 +81,40 @@
                   /*  line-height: 80px;*/
 
                    }
+
+                     .header .playerA .PlayerArubyChips{
+
+                      width: 43%;
+                      height: 80px;
+                      /* border:1px solid black; */
+                      /* background-color: black; */
+                      float: left;
+                      margin-left: 0%;
+                      margin-top: 13px;
+                      text-align: left;
+                     
+                     
+                    
+
+                     }
+                     
+                     	.header .playerA .PlayerArubyChips .ruby{
+
+                    		width: 23%;
+                   			height: 80px;
+                   		/*	border:1px dotted black;*/
+                   			box-sizing:border-box;
+                   			display: inline-block;
+                   			margin-left:-16px;
+                        margin-top: 10px;
+                        /*margin: 0 auto 0 auto;*/
+
+                   			padding-left:10px;
+                   			background-image: url("../image/ruby.png");
+                   			background-repeat: no-repeat;                   
+                    
+
+                     }
 
                    .header .playerA .playerAScore{
 
@@ -114,7 +148,7 @@
                         height: 80px;
                        /* border:1px solid black;*/
                         float: left;
-                        margin-left: 2%;
+                        margin-left: 0%;
                         margin-top: 8px;
                         line-height: 80px;
 
@@ -133,7 +167,7 @@
 
                          .header .playerB .playerBInformation{
 
-                    width: 58%;
+                    width: 20%;
                     height: 80px;
                     /*border:1px solid black;*/
                     float: left;
@@ -144,6 +178,37 @@
                     padding-left: 20px;
 
                    }
+
+                  
+
+                         .header .playerB .PlayerBrubyChips{
+
+                      width: 40%;
+                      height: 80px;
+                      float: left;
+                      margin-left: 25px;
+                      margin-top: 13px;
+                      text-align: left;
+                     
+                     
+                    
+
+                     }
+                     
+                      .header .playerB .PlayerBrubyChips .ruby{
+
+                        width: 23%;
+                        height: 80px;
+                      /*  border:1px dotted black;*/
+                        box-sizing:border-box;
+                        display: inline-block;
+                        margin-left:-16px;
+                        margin-top: 10px;
+                        background-image: url("../image/ruby.png");
+                        background-repeat: no-repeat;                   
+                    
+
+                     }
 
 
                        .header .playerB .playerBScore{
@@ -200,13 +265,44 @@
                 float: left;
                 width: 15%;
                 height: 100%;
-                /*border:1px solid blue;*/
+               /* border:1px solid blue;*/
                 box-sizing:border-box;
                 text-align: center;
                 line-height: 400px;
-                padding-left: 17px;
+                padding-left: 0px;
+                margin-top: 15px;
 
             }
+
+              .gameArea .leftUserArea .left_user_card{
+
+                width: 150px;
+                height: 75px;
+                border:3.5px solid white;
+                border-radius: 10px;
+                background-color: #BD8B84;
+                box-shadow: -5px 5px 6px gray;
+                margin-left: 0px;
+                margin-top: -30px;
+                cursor: pointer;
+                list-style:none;
+
+              }
+              
+                .gameArea .leftUserArea .left_user_card:hover{
+
+                width: 150px;
+                height: 75px;
+                border:3.5px solid white;
+                border-radius: 10px;
+                background-color: black;
+                box-shadow: -5px 5px 6px gray;
+                margin-left: 10px;
+                margin-top: -30px;
+                cursor: pointer;
+
+              }
+
 
             .gameArea .matchArea{
 
@@ -217,73 +313,112 @@
                 box-sizing:border-box;
                 margin-left: 15%;
                 margin-right: 15%;
+                margin-top: 5%;
                /* position: relative;*/
 
             } 
 
                  .gameArea .matchArea .match{
                        perspective: 1000;
-                       width: 400px;
-                       height: 300px;
+                       width: 80%;
+                       height: 340px;
                        /*border:1px solid green;*/
                        background-color: rgba(97,158,92,0.15);
                        box-sizing:border-box;
-                       margin: 15% auto 0 auto;
+                       margin: 12% auto 0 auto;
                        
                 } 
 
 
-                	.gameArea .matchArea .match .leftUser_card{
+                	.gameArea .matchArea .match  .match_left_User_card{
 
-                       width: 141px;
-                       height: 206px;
-                       /*border:1px solid black;*/
-                       /*background-color: rgba(97,158,92,0.15);  */                   
-                       margin-top:5%;
-                       margin-left: 3%;
-                       position: absolute;
-                       background-image: url("../image/card/back.png");
+                     width: 100px;
+                     height: 150px;
+                     border:3.5px solid white;
+                     border-radius: 10px;
+                     background-color: #BD8B84;
+                     box-shadow: -5px 5px 6px gray;                  
+                     margin-top:5%;
+                     margin-left: 3%;
+                     position: absolute;
+                     display: none;
+
+
+                   
         
                 } 
 
-                	.gameArea .matchArea .match .leftUser_card img{
+                  .gameArea .matchArea .match .match_left_User_card .put_card{
 
-                       margin-left: -30%;
-                       margin-top: -60%;
-                } 
-
-                	.gameArea .matchArea .match .rightUser_card{
-
-                       width:141px;
-                       height:206px;
-                       /*border:1px solid black;*/
-                       /*background-color: rgba(97,158,92,0.15);  */                   
-                       margin-top: 5%;
-                       margin-left: 18%;
-                      position: absolute;
-                      background-image: url("../image/card/back.png");
+                    display: block;
+            
         
+                } 
+                
+                .gameArea .matchArea .match .match_button{
+                  display: none;
                 }
-        
+                
+               
+                	.gameArea .matchArea .match .match_right_User_card{
 
-                	.gameArea .matchArea .match .rightUser_card img{
-
-                       margin-left: -30%;
-                       margin-top: -80%;
-                } 
-
-
+                    width: 100px;
+	                  height: 150px;
+	                  border:3.5px solid white;
+	                  border-radius: 10px;
+	                  background-color: #A6B181;
+	                  box-shadow: 5px 5px 6px gray;                
+                    margin-top: 5%;
+                    margin-left: 18%;
+                    position: absolute;
+                    display:none;
+      
+                }
+                
+                
             .gameArea .rightUserArea{
                 float: right;
                 width: 15%;
                 height: 100%;
                 position: relative;
                 /*border:1px solid red;*/
-                padding-right: 17px;
+          /*      padding-right: 17px;*/
                 box-sizing:border-box;
-                 text-align: center;
+                text-align: center;
                 line-height: 400px;
+                right: 47px;
+                margin-top: 15px;
             }
+
+
+             .gameArea .rightUserArea .right_user_card{
+
+                width: 150px;
+                height: 75px;
+                border:3.5px solid white;
+                border-radius: 10px;
+                background-color: #A6B181;
+                box-shadow: 5px 5px 6px gray;
+                margin-left: 10px;
+                margin-top: -30px;
+                cursor: pointer;
+                list-style:none;
+
+              }
+              
+              .gameArea .rightUserArea .right_user_card:hover{
+
+                width: 150px;
+                height: 75px;
+                border:3.5px solid white;
+                border-radius: 10px;
+                background-color: black;
+                box-shadow: 5px 5px 6px gray;
+                margin-left: -7px;
+                margin-top: -30px;
+                cursor: pointer;
+
+              }
 
         .clear{
             clear: both;
