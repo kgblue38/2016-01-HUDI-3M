@@ -64,7 +64,7 @@
 		<%-- <c:when test="${ur.getUserCount() == 2}"> --%>
 			<div class="header">
             <div class="playerA">
-                 <div class="playerAAvatar"><img src="image/avartar_in_circle.png"></div>
+                 <div class="playerAAvatar"><img src="/image/avartar_in_circle.png"></div>
                  <div class="playerAInformation">Id: ${userId1.getUserId1()} </br> 계급: 루비</div>
                  	 <div class="PlayerArubyChips">
 	                 	<div class="ruby"></div>
@@ -77,7 +77,7 @@
             </div>
 
 			<div class="playerB">
-                <div class="playerBAvatar"><img src="image/avartar2_in_circle.png"></div>
+                <div class="playerBAvatar"><img src="/image/avartar2_in_circle.png"></div>
                 <div class="playerBInformation">Id: ${userId1.getUserId2()} </br> 계급: 사파이어</div>
                    <div class="PlayerBrubyChips">
                     <div class="ruby"></div>
