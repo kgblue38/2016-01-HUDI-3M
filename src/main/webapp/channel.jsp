@@ -17,10 +17,10 @@
 
 </head>
 <body>
-	<script src="/lib/jquery-1.12.0.js"></script>
-	<script src="/lib/sockjs-0.3.4.js"></script>
+	
 	<div class="col-md-6 col-md-offset-6">
-		<table class="table" id="info" style="border-style: solid; border-color: brown; margin-right:10px;">
+		
+		<table class="table" id="info" style="border-style: solid; border-color:brown; margin-right:10px;float:right">
 			<tr>
 				<th id="avatarTable" rowspan="4">{{avatar]]</th>
 				<td>ID</td>
@@ -39,6 +39,10 @@
 				<td></td>
 			</tr>
 		</table>
+		<div class="button_container" style="float:right">
+			<button type="button">로그아웃</button>
+			<button type="button">개인정보수정 </button>
+		</div>
 	</div>
 	</div>
 
@@ -67,9 +71,9 @@
 					<li class="media">
 						<div class="media-body">
 							<div class="media">
-								<a class="pull-left" href="#"> <!-- <img
+								<a class="pull-left" href="#"> <img
 									class="media-object img-circle" style="max-height: 40px;"
-									src="assets/img/user.png" /> -->
+									src="assets/img/user.png" />
 								</a>
 								<div class="media-body">
 									<h5>임동준 | 사파이어</h5>
@@ -85,9 +89,9 @@
 						<div class="media-body">
 
 							<div class="media">
-								<a class="pull-left" href="#"> <!-- <img
+								<a class="pull-left" href="#"> <img
 									class="media-object img-circle" style="max-height: 40px;"
-									src="assets/img/user.gif" /> -->
+									src="assets/img/user.gif" />
 								</a>
 								<div class="media-body">
 									<h5>이도형 | 루비</h5>
@@ -99,8 +103,9 @@
 				</ul>
 			</div>
 		</div>
-
+		<a href="/room/wait"><button>게임 시작</button></a>
 	</div>
+
 
 	<div class="col-md-3">
 		<div class="panel panel-info">
@@ -110,8 +115,8 @@
 					<li class="media">
 						<div class="media-body">
 							<div class="media">
-								<a class="pull-left" href="#"> <!-- <img
-									class="media-object img-circle " src="assets/img/user.png" /> -->
+								<a class="pull-left" href="#"> <img
+									class="media-object img-circle " src="assets/img/user.png" />
 								</a>
 								<div class="media-body">
 									nNnaa <br /> <small class="text-muted">chiho | 23rd
@@ -126,8 +131,8 @@
 						<div class="media-body">
 
 							<div class="media">
-								<a class="pull-left" href="#"> <!-- <img
-									class="media-object img-circle " src="assets/img/user.png" /> -->
+								<a class="pull-left" href="#"> <img
+									class="media-object img-circle " src="assets/img/user.png" />
 								</a>
 								<div class="media-body">
 									Hello from the other side, I must have told that thousands
@@ -143,8 +148,8 @@
 						<div class="media-body">
 
 							<div class="media">
-								<a class="pull-left" href="#"> <!-- <img
-									class="media-object img-circle " src="assets/img/user.png" /> -->
+								<a class="pull-left" href="#"> <img
+									class="media-object img-circle " src="assets/img/user.png" />
 								</a>
 								<div class="media-body">
 									넘나 귀찮은것. <br /> <small class="text-muted">javajigi |
@@ -160,8 +165,8 @@
 						<div class="media-body">
 
 							<div class="media">
-								<a class="pull-left" href="#"> <!-- <img
-									class="media-object img-circle " src="assets/img/user.gif" /> -->
+								<a class="pull-left" href="#"> <img
+									class="media-object img-circle " src="assets/img/user.gif" />
 								</a>
 								<div class="media-body">
 									인디언 포커 재미있는둡, 생각보다. <br /> <small class="text-muted">adele
@@ -173,10 +178,6 @@
 						</div>
 					</li>
 				</ul>
-
-				<div>
-					<a href="/room/wait">게임시작</a>
-				</div>
 			</div>
 			<div class="panel-footer">
 				<div class="input-group">
@@ -189,7 +190,7 @@
 		</div>
 	</div>
 </body>
-<script type="text/javascript" src="/js/channel.js"></script>
+<script type="text/javascript" src="/js/waittingroom.js"></script>
 <script src="/js/remodal.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
