@@ -22,22 +22,24 @@
 
 </head>
 <body>
+	<c:set value="${sessionScope.user.userId}" var="myUserId" />
+	<c:set value="${room.roomUser1.user.userId}" var="userId1" />
+	<c:set value="${room.roomUser2.user.userId}" var="userId2" />
+	<c:set value="${room.roomId}" var="roomId" />
 
 	<div class="header">
-		<li>Logout</li>
+		<li class="exit"><a href="/room/wait/exit?roomId=${roomId}">방에서 나가기</a></li>
 		<li>about</li>
 	</div>
 
 	<div class="empty"></div>
-	<c:set value="${sessionScope.user.userId}" var="myUserId" />
-	<c:set value="${room.roomUser1.user.userId}" var="userId1" />
-	<c:set value="${room.roomUser2.user.userId}" var="userId2" />
 	
-	<input type="hidden" name="roomId" value="${room.roomId}" />
+	<input type="hidden" name="roomId" value="${roomId}" />
 	<input type="hidden" name="myUserId" value="${myUserId}" />
 	<c:choose>
 		<c:when test="${not empty room}">
 			<div class="user1_area">
+				<c:if test="${not empty userId1}">
 				<div class="user1_avartar"></div>
 				<div class="user1_ready_button">ready</div>
 				<c:choose>
@@ -49,14 +51,16 @@
 					</c:otherwise>
 				</c:choose>
 				<div class="user_info">${userId1}</div>
+				</c:if>
 			</div>
 
 			<div class="middle_area_box">
 				<div class="chat_box"></div>
-				<div class="start_button"><a href="/room/game?roomId=${room.roomId}">START</a></div>
+				<div class="start_button"><a href="/room/game?roomId=${roomId}">START</a></div>
 			</div>
 
 			<div class="user2_area">
+				<c:if test="${not empty userId2}">
 				<div class="user2_avartar"></div>
 				<div class="user2_ready_button">ready</div>
 				<c:choose>
@@ -68,6 +72,7 @@
 					</c:otherwise>
 				</c:choose>
 				<div class="user_info">${userId2}</div>
+				</c:if>
 			</div>
 		</c:when>
 

@@ -17,7 +17,8 @@
 
 </head>
 <body>
-
+	<script src="/lib/jquery-1.12.0.js"></script>
+	<script src="/lib/sockjs-0.3.4.js"></script>
 	<div class="col-md-6 col-md-offset-6">
 		<table class="table" id="info" style="border-style: solid; border-color: brown; margin-right:10px;">
 			<tr>
@@ -66,9 +67,9 @@
 					<li class="media">
 						<div class="media-body">
 							<div class="media">
-								<a class="pull-left" href="#"> <img
+								<a class="pull-left" href="#"> <!-- <img
 									class="media-object img-circle" style="max-height: 40px;"
-									src="assets/img/user.png" />
+									src="assets/img/user.png" /> -->
 								</a>
 								<div class="media-body">
 									<h5>임동준 | 사파이어</h5>
@@ -84,9 +85,9 @@
 						<div class="media-body">
 
 							<div class="media">
-								<a class="pull-left" href="#"> <img
+								<a class="pull-left" href="#"> <!-- <img
 									class="media-object img-circle" style="max-height: 40px;"
-									src="assets/img/user.gif" />
+									src="assets/img/user.gif" /> -->
 								</a>
 								<div class="media-body">
 									<h5>이도형 | 루비</h5>
@@ -109,8 +110,8 @@
 					<li class="media">
 						<div class="media-body">
 							<div class="media">
-								<a class="pull-left" href="#"> <img
-									class="media-object img-circle " src="assets/img/user.png" />
+								<a class="pull-left" href="#"> <!-- <img
+									class="media-object img-circle " src="assets/img/user.png" /> -->
 								</a>
 								<div class="media-body">
 									nNnaa <br /> <small class="text-muted">chiho | 23rd
@@ -125,8 +126,8 @@
 						<div class="media-body">
 
 							<div class="media">
-								<a class="pull-left" href="#"> <img
-									class="media-object img-circle " src="assets/img/user.png" />
+								<a class="pull-left" href="#"> <!-- <img
+									class="media-object img-circle " src="assets/img/user.png" /> -->
 								</a>
 								<div class="media-body">
 									Hello from the other side, I must have told that thousands
@@ -142,8 +143,8 @@
 						<div class="media-body">
 
 							<div class="media">
-								<a class="pull-left" href="#"> <img
-									class="media-object img-circle " src="assets/img/user.png" />
+								<a class="pull-left" href="#"> <!-- <img
+									class="media-object img-circle " src="assets/img/user.png" /> -->
 								</a>
 								<div class="media-body">
 									넘나 귀찮은것. <br /> <small class="text-muted">javajigi |
@@ -159,8 +160,8 @@
 						<div class="media-body">
 
 							<div class="media">
-								<a class="pull-left" href="#"> <img
-									class="media-object img-circle " src="assets/img/user.gif" />
+								<a class="pull-left" href="#"> <!-- <img
+									class="media-object img-circle " src="assets/img/user.gif" /> -->
 								</a>
 								<div class="media-body">
 									인디언 포커 재미있는둡, 생각보다. <br /> <small class="text-muted">adele
@@ -188,7 +189,7 @@
 		</div>
 	</div>
 </body>
-<script type="text/javascript" src="/js/waittingroom.js"></script>
+<script type="text/javascript" src="/js/channel.js"></script>
 <script src="/js/remodal.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"

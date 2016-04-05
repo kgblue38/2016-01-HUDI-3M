@@ -27,7 +27,6 @@ public class RoomApiController {
 
 	public Room check(@RequestParam int roomId, HttpServletResponse response) throws IOException {
 		Room room = Rooms.getInstance().getRoom(roomId);
-		System.out.println("in /wait/check");
 		return room;
 	}
 }

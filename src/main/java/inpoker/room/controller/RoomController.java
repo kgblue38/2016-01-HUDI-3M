@@ -58,6 +58,14 @@ public class RoomController {
 		return "/waittingroom.jsp";
 	}
 	
+	@RequestMapping("/wait/exit")
+	public String exitRoom(@RequestParam int roomId, HttpSession session) {
+		Room room = rooms.getRoom(roomId);
+		User user = (User)session.getAttribute("user");
+		room.deleteUser(user, roomId);
+		return "redirect:/room/channel";
+	}
+	
 	@RequestMapping("/game")
 	public String goGame(@RequestParam int roomId, Model model) {
 		Room room = rooms.getRoom(roomId);

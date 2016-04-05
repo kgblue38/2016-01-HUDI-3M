@@ -26,7 +26,7 @@ var TODO = (function(window){
 				console.debug("not your button");
 				return;
 			}
-			var userStatus = changeUserStatus($eTarget);
+			var userStatus = updateUserStatus($eTarget);
 			data.roomId = roomId;
 			data.userId = userId;
 			data.userStatus = userStatus;
@@ -37,7 +37,7 @@ var TODO = (function(window){
 				"data" : data
 			}).done(function(room) {
 				console.debug("click event done()");
-				changeUserReady($eTarget, getUserStatus(room, userId));
+				updateUserReady($eTarget, getUserStatus(room, userId));
 			})
 		},
 		checkStatus: function() {
@@ -49,19 +49,38 @@ var TODO = (function(window){
 				"type" : "GET",
 				"data" : data
 			}).done(function(room) {
-
+				
 				if (room.roomStatus === "start") {
-					console.debug("im start");
 					window.location.href = ('/room/game?roomId=' + roomId);
 					return;
 				}
 
-				console.debug("check event done()");
-				changeUserReady($user1Button, getUserStatus(room, user1Id));
-				changeUserReady($user2Button, getUserStatus(room, user2Id));
+				updateUserExist(room);
+
+				if (room.roomUser1 != null) {
+					console.log("room1 is not null");
+					updateUserReady($user1Button, getUserStatus(room, user1Id));
+				}
+				
+				if (room.roomUser2 != null) {
+					console.log("room2 is not null");
+					updateUserReady($user2Button, getUserStatus(room, user2Id));
+				}
+				
 				updateStartButton(room);
 			})
 		},
+	}
+	
+	function updateUserExist(room) {
+		if (room.roomUser1 === null) {
+			console.log("user1 delete");
+			$(".user1_area").empty();
+		}
+		if (room.roomUser2 === null) {
+			console.log("user2 delete");
+			$(".user2_area").empty();
+		}
 	}
 	
 	function updateStartButton(room) {
@@ -82,7 +101,7 @@ var TODO = (function(window){
 		}
 	}
 	
-	function changeUserReady($eTarget, userStatus) {
+	function updateUserReady($eTarget, userStatus) {
 		if (userStatus == "ready") {
 			$eTarget.addClass('clicked');
 			return;
@@ -90,7 +109,7 @@ var TODO = (function(window){
 		$eTarget.removeClass('clicked');
 	}
 	
-	function changeUserStatus($eTarget) {
+	function updateUserStatus($eTarget) {
 		if ($eTarget.hasClass('clicked')) {
 			return "notReady";
 		}

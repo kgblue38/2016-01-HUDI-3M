@@ -17,13 +17,26 @@ public class Room {
 		this.roomUser2 = roomUser2;
 	}
 	
-	public Room(User user1, User user2) {
-		this(new RoomUser(user1), new RoomUser(user2));
+	public Room(int roomId, String roomStatus, RoomUser roomUser1) {
+		this(roomId, roomStatus, roomUser1, null);
 	}
 
 	public Room(RoomUser roomUser1, RoomUser roomUser2) {
 		this(++idCount, "notStart", roomUser1, roomUser2);
 	}
+	
+	public Room(RoomUser roomUser1) {
+		this(++idCount, "notStart", roomUser1);
+	}
+	
+	public Room(User user1, User user2) {
+		this(new RoomUser(user1), new RoomUser(user2));
+	}
+	
+	public Room(User user1) {
+		this(new RoomUser(user1));
+	}
+	
 	
 	private void updateCanStart() {
 		canStart = validateStart();
@@ -105,9 +118,25 @@ public class Room {
 		this.canStart = canStart;
 	}
 
+	public void deleteUser(User user, int roomId) {
+		if (roomUser1 != null && roomUser1.isMatchedUserId(user.getUserId())) {
+			this.roomUser1 = null;
+			this.canStart = false;
+		}
+		if (roomUser2 != null && roomUser2.isMatchedUserId(user.getUserId())) {
+			this.roomUser2 = null;
+			this.canStart = false;
+		}
+		
+		if (this.roomUser1 == null && this.roomUser2 == null) {
+			Rooms.getInstance().deleteRoom(roomId);
+		}
+	}
+	
 	@Override
 	public String toString() {
 		return "Room [roomId=" + roomId + ", roomStatus=" + roomStatus + ", roomUser1=" + roomUser1 + ", roomUser2="
 				+ roomUser2 + ", canStart=" + canStart + "]";
 	}
+
 }

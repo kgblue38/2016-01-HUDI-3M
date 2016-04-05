@@ -27,6 +27,10 @@ public class Rooms {
 		logger.debug("L : {}", room);
 	}
 	
+	public void deleteRoom(int roomId) {
+		createdRooms.remove(roomId);
+	}
+
 	public Room getRoom(int roomId) {
 		return createdRooms.get(roomId);
 	}
@@ -48,4 +52,5 @@ public class Rooms {
 		return "Rooms [getRoomCount()=" + getRoomCount() + ", getRoom()=" + getRoom() + ", getClass()=" + getClass()
 				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
+
 }
