@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import core.utils.SessionUtils;
 import inpoker.room.model.GameAutoStartUsers;
 import inpoker.room.model.Room;
 import inpoker.room.model.Rooms;
@@ -30,9 +31,8 @@ public class RoomController {
 	@RequestMapping("/channel")
 	public String goChannel(Model model, HttpSession session) {
 		// 테스트하기 위해서 그냥 넣음..
-		logger.debug("[Session.User Test] : {}", session.getAttribute("user"));
-		System.out.println(session.getAttribute("user"));
-		GameAutoStartUsers.getInstance().addUser((User)session.getAttribute("user"));
+		logger.debug("[Session.User Test] : {}", SessionUtils.getUserValue(session, "user"));
+		GameAutoStartUsers.getInstance().addUser(SessionUtils.getUserValue(session, "user"));
 		model.addAttribute("users", users);
 		model.addAttribute("rooms", rooms);
 		return "/channel.jsp";
@@ -52,8 +52,7 @@ public class RoomController {
 		System.out.println(room);
 		logger.debug("room : {}", room);
 //		logger.debug("session.User : {}", session.getAttribute("user"));
-//		logger.debug("session.User : {}", session.getAttribute("user"));
-		System.out.println("session.User : " + session.getAttribute("user"));
+		System.out.println("session.User : " + SessionUtils.getUserValue(session, "user"));
 		model.addAttribute("room", room);
 		return "/waittingroom.jsp";
 	}
@@ -61,7 +60,7 @@ public class RoomController {
 	@RequestMapping("/wait/exit")
 	public String exitRoom(@RequestParam int roomId, HttpSession session) {
 		Room room = rooms.getRoom(roomId);
-		User user = (User)session.getAttribute("user");
+		User user = SessionUtils.getUserValue(session, "user");
 		room.deleteUser(user, roomId);
 		return "redirect:/room/channel";
 	}
