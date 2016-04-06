@@ -9,6 +9,7 @@ import inpoker.user.model.User;
 public class GameAutoStartUsers {
 	private static GameAutoStartUsers gameAutoWaitUsers = null;
 	private static Map<String, User> autoGameUsers = new HashMap<String, User>();
+	private static int roomId = -1;
 	private GameAutoStartUsers() {
 	}
 
@@ -19,8 +20,14 @@ public class GameAutoStartUsers {
 		return gameAutoWaitUsers;
 	}
 	
-	public void addUser(User user) {
+	public static MatchJsonData addUser(User user) {
 		autoGameUsers.put(user.getUserId(), user);
+		if(autoGameUsers.size() <= 1){
+			return MatchJsonData.getFail();
+		}else if(autoGameUsers.size() >= 2){
+			return MatchJsonData.getSuccess(makeRoom());
+		}
+		return null;
 	}
 	
 	public User getUser(String userId) {
@@ -32,12 +39,15 @@ public class GameAutoStartUsers {
 	}
 	
 	//make testCase
-	public Room makeRoom() {
+	private static int makeRoom() {
 		Object[] users = autoGameUsers.values().toArray();
-		User user1 = (User)users[0];
-		User user2 = (User)users[1];
-		Room room = new Room(user1, user2);
-		Rooms.getInstance().addRoom(room);
-		return room;
+		if(roomId == -1){
+			User user1 = (User)users[0];
+			User user2 = (User)users[1];
+			Room room = new Room(user1, user2);
+			Rooms.getInstance().addRoom(room);
+			roomId = room.getRoomId();
+		}
+		return roomId;
 	}
 }

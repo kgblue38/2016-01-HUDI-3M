@@ -41,4 +41,26 @@ public class Users {
 	public int getUserCount() {
 		return loginUsers.size();
 	}
+
+	public static Users getUsers() {
+		return users;
+	}
+
+	public static void setUsers(Users users) {
+		Users.users = users;
+	}
+
+	public static Map<String, User> getLoginUsers() {
+		return loginUsers;
+	}
+
+	public static void setLoginUsers(Map<String, User> loginUsers) {
+		Users.loginUsers = loginUsers;
+	}
+
+	public static Logger getLogger() {
+		return logger;
+	}
+	
+	
 }

@@ -32,29 +32,37 @@ public class RoomController {
 	public String goChannel(Model model, HttpSession session) {
 		// 테스트하기 위해서 그냥 넣음..
 		logger.debug("[Session.User Test] : {}", SessionUtils.getUserValue(session, "user"));
-		GameAutoStartUsers.getInstance().addUser(SessionUtils.getUserValue(session, "user"));
-		model.addAttribute("users", users);
-		model.addAttribute("rooms", rooms);
+//		GameAutoStartUsers.getInstance().addUser(SessionUtils.getUserValue(session, "user"));
+		model.addAttribute("loginUsers", users.getLoginUsers());
+		System.out.println(users.getLoginUsers());
+		model.addAttribute("rooms", rooms.getCreatedRooms());
 		return "/channel.jsp";
 	}
 	
-	// test Case 
 	@RequestMapping("/wait")
-	public String goWait(HttpSession session, Model model) {
+	public String goWait(HttpSession session, int roomId, Model model) {
 		System.out.println("in /room/wait");
-		Room room;
+		Room room = rooms.getRoom(roomId);
 		System.out.println("rooms.getRoomCount() : " + rooms.getRoomCount());
-		if (rooms.getRoomCount() == 0) {
-			room = gameAutoStartUsers.makeRoom();
-		} else {
-			room = Rooms.getInstance().getRoom();
-		}
-		System.out.println(room);
-		logger.debug("room : {}", room);
-//		logger.debug("session.User : {}", session.getAttribute("user"));
-		System.out.println("session.User : " + SessionUtils.getUserValue(session, "user"));
+//		if (rooms.getRoomCount() == 0) {
+//			room = gameAutoStartUsers.makeRoom();
+//		} else {
+//			room = Rooms.getInstance().getRoom();
+//		}
+//		System.out.println(room);
+//		logger.debug("room : {}", room);
+////		logger.debug("session.User : {}", session.getAttribute("user"));
+//		System.out.println("session.User : " + SessionUtils.getUserValue(session, "user"));
 		model.addAttribute("room", room);
 		return "/waittingroom.jsp";
+	}
+	
+	@RequestMapping("/wait/matching")
+	public String match(HttpSession session, Model model){
+		Room room;
+		
+		
+		return null;
 	}
 	
 	@RequestMapping("/wait/exit")
@@ -74,9 +82,3 @@ public class RoomController {
 		return "/gameMain.jsp";
 	}
 }
-
-
-
-
-
-

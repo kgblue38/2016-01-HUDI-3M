@@ -54,11 +54,13 @@
 				<th>Player</th>
 				<th>status</th>
 			</tr>
+			<c:forEach items="${rooms}" var="room">
 			<tr>
-				<td>001</td>
+				<td>${room.roomId}</td>
 				<td>포커의제왕재성</td>
 				<td>1/2</td>
 			</tr>
+			</c:forEach>
 		</table>
 
 	</div>
@@ -68,6 +70,8 @@
 			<div class="panel-heading">User List</div>
 			<div class="panel-body" style="overflow: auto; height: 400px">
 				<ul class="media-list">
+				<%-- ${loginUsers}
+                <c:forEach items="${loginUsers.content}" var="user">
 					<li class="media">
 						<div class="media-body">
 							<div class="media">
@@ -76,34 +80,18 @@
 									src="assets/img/user.png" />
 								</a>
 								<div class="media-body">
-									<h5>임동준 | 사파이어</h5>
-
+									<h5><c:out value="${user.value}"/> | 사파이어</h5>
 									<small class="text-muted"> 3시간째 게임중 </small>
 								</div>
 							</div>
-
 						</div>
 					</li>
-					<li class="media">
-
-						<div class="media-body">
-
-							<div class="media">
-								<a class="pull-left" href="#"> <img
-									class="media-object img-circle" style="max-height: 40px;"
-									src="assets/img/user.gif" />
-								</a>
-								<div class="media-body">
-									<h5>이도형 | 루비</h5>
-									<small class="text-muted">3시간째 게임중</small>
-								</div>
-							</div>
-						</div>
-					</li>
+				</c:forEach> --%> 더 알아봅시다
 				</ul>
 			</div>
 		</div>
 		<a href="/room/wait"><button>게임 시작</button></a>
+		<a href="/room/wait/matching"><button>매칭 테스트</button></a>
 	</div>
 
 
