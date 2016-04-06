@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import core.utils.SessionUtils;
 import inpoker.room.model.Rooms;
 import inpoker.user.dao.UserDao;
 import inpoker.user.model.User;
@@ -51,7 +52,19 @@ public class UserController {
 		request.getSession().setAttribute("user", user);
 		return "redirect:/room/channel";
 	}
-
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.removeAttribute("user");
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "", method = RequestMethod.PUT)
+	public String update(@RequestParam String userPassword, HttpSession session) {
+		userDao.updateUser(userPassword, SessionUtils.getUserValue(session, "user"));
+		return "redirect:/room/channel";
+	}
+	
 	private void isCorrectLogin(String userId, String userPassword) throws UserLoginFailedException {
 		User dbUser = userDao.findUserById(userId);
 		if (dbUser == null || !dbUser.isCorrectLogin(userId, userPassword)) {

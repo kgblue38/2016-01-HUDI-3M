@@ -3,12 +3,15 @@ package inpoker.user.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import core.utils.SessionUtils;
 import inpoker.user.model.User;
 
 @Repository
@@ -20,7 +23,7 @@ public class UserDao {
 		String sql = "INSERT INTO users (userId, userPassword, userEmail) VALUES (?, ?, ?)";
 		jdbcTemplate.update(sql, user.getUserId(), user.getUserPassword(), user.getUserEmail());
 	}
-
+	
 	public User findUserById(String userId) {
 		try {
 			String sql = "SELECT pid, userId, userPassword, userEmail FROM users WHERE userId = ?";
@@ -37,5 +40,10 @@ public class UserDao {
 		} catch (EmptyResultDataAccessException e) {
 			return null;
 		}
+	}
+	
+	public void updateUser(String userPassword, User user) {
+		String sql = "UPDATE users SET userPassword = ? WHERE userId = ?";
+		jdbcTemplate.update(sql, userPassword, user.getUserId());
 	}
 }

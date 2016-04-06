@@ -41,7 +41,7 @@
 			</tr>
 		</table>
 		<div class="button_container" style="float:right">
-			<button type="button">로그아웃</button>
+			<button type="button"><a href="/user/logout">로그아웃</a></button>
 			<a href="#modal"><button type="button">개인정보수정 </button></a>
 		</div>
 
@@ -176,17 +176,20 @@
 							</div>
 							<div class="remodal" data-remodal-id="modal" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
   <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+  <form method="post" action="/user">
+  <input type="hidden" name="_method" value="PUT" />
   <div>
     <h2 id="modal1Title">개인정보수정</h2>
     <p id="modal1Desc">
     	개인정보를 수정하세요.
     </p>
     <label>Id : {{user.userId}}</label> <br>
-    <label>Password : </label><input placeholder="password">
+    <label>Password : </label><input placeholder="userPassword" name="userPassword">
   </div>
   <br>
   <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
-  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+  <input type="submit" value="OK" />
+</form>
 </div>
 						</div>
 					</li>

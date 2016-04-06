@@ -26,5 +26,4 @@ var CHANNEL = (function() {
 		init : init
 	};
 	
-	function 
 })();

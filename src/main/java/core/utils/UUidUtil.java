@@ -3,7 +3,7 @@ package core.utils;
 import java.util.UUID;
 
 public class UUidUtil {
-	public String createUUID() {
+	public static String createUUID() {
 		return UUID.randomUUID().toString().replace("-", "");
 	}
 }
