@@ -13,7 +13,8 @@
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/lib/bootstrap.min.css">
-
+<link rel="stylesheet" type="text/css" href="/css/remodal.css">
+<link rel="stylesheet" type="text/css" href="/css/remodal-default-theme.css">
 
 </head>
 <body>
@@ -41,11 +42,10 @@
 		</table>
 		<div class="button_container" style="float:right">
 			<button type="button">로그아웃</button>
-			<button type="button">개인정보수정 </button>
+			<a href="#modal"><button type="button">개인정보수정 </button></a>
 		</div>
-	</div>
-	</div>
 
+	</div>
 
 	<div class="col-md-6">
 		<table class="table">
@@ -174,7 +174,20 @@
 									<hr />
 								</div>
 							</div>
-
+							<div class="remodal" data-remodal-id="modal" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
+  <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+  <div>
+    <h2 id="modal1Title">개인정보수정</h2>
+    <p id="modal1Desc">
+    	개인정보를 수정하세요.
+    </p>
+    <label>Id : {{user.userId}}</label> <br>
+    <label>Password : </label><input placeholder="password">
+  </div>
+  <br>
+  <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+</div>
 						</div>
 					</li>
 				</ul>
