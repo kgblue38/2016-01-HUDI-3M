@@ -18,6 +18,8 @@ var CHANNEL = (function() {
 		$('.media-list').append("<li>유저한명퇴장</li>");
 	}
 	
+	
+	
 	function init() {
 		$button.on('click', sendMessage);
 	}

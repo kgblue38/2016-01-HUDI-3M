@@ -10,6 +10,26 @@ import org.slf4j.LoggerFactory;
 public class Rooms {
 	private static final Logger logger = LoggerFactory.getLogger(Rooms.class);
 	private static Rooms rooms = null;
+	public static Rooms getRooms() {
+		return rooms;
+	}
+
+	public static void setRooms(Rooms rooms) {
+		Rooms.rooms = rooms;
+	}
+
+	public static Map<Integer, Room> getCreatedRooms() {
+		return createdRooms;
+	}
+
+	public static void setCreatedRooms(Map<Integer, Room> createdRooms) {
+		Rooms.createdRooms = createdRooms;
+	}
+
+	public static Logger getLogger() {
+		return logger;
+	}
+
 	private static Map<Integer, Room> createdRooms = new HashMap<Integer, Room>();
 	
 	private Rooms() {

@@ -13,72 +13,41 @@
         </style>
         <link rel="stylesheet" type="text/css" href="/css/gameMain.css">
         <script type="text/javascript"
-			src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-		<script type="text/javascript"
-			src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-		<script type="text/javascript"></script>
-        <script src="lib/jquery-1.12.0.js"></script>
-        <script src="lib/handlebars-v4.0.5.js"></script>
-        <link rel="stylesheet" href="css/remodal.css">
-        <link rel="stylesheet" href="css/remodal-default-theme.css">
+      src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript"></script>
+        <script src="/lib/jquery-1.12.0.js"></script>
+        <script src="/lib/handlebars-v4.0.5.js"></script>
+        <link rel="stylesheet" href="/css/remodal.css">
+        <link rel="stylesheet" href="/css/remodal-default-theme.css">
         
     </head>
     <body>
-<%--     <%
-		UserRepository ur = UserRepository.getInstance();
-		UserController uc = new UserController();
-		pageContext.setAttribute("userId1", uc);
-		pageContext.setAttribute("userId2", uc);
-<<<<<<< HEAD
-		
-/* 		User user1 = userDao.findUserById(dj0999);
-		req.getSession().setAttribute("user1", dj0999);
-		
-		User user2 = userDao.findUserById("asd123");
-		req.getSession().setAttribute("user", asd123); */
-		
-
-	%>
-=======
-		pageContext.setAttribute("ur", ur);
-	%> --%>
->>>>>>> e43d9ff35b4e963231c9b5b6416a615cf32dd7c5
-	
-<%-- 	<c:choose>
-		<c:when test="${ur.getUserCount() == 1}"> --%>
-			<%-- <div class="header">
-            <div class="playerA">
-                 <div class="playerAAvatar"><img src="image/avartar_in_circle.png"></div>
-                 <div class="playerAInformation">Id: ${userId1.getUserId1()} </br> 계급: 루비</div>
-                 <div class="PlayerArubyChips">
-                 	<div class="ruby"></div>
-                 	<div class="ruby"></div>
-                 	<div class="ruby"></div>
-                 	<div class="ruby"></div>
-                 	<div class="ruby"></div>
-                 </div>
-                 <div class="playerAScore">53(점)</div>
-            </div> --%>
-	<%-- 	</c:when> --%>
-
-		<%-- <c:when test="${ur.getUserCount() == 2}"> --%>
-			<div class="header">
+    
+    <c:set value="${room.roomUser1.user.userId}" var="userId1" />
+   <c:set value="${room.roomUser2.user.userId}" var="userId2" /> 
+  
+  <input type="hidden" name="userId1" value="${userId1}" />
+  <input type="hidden" name="userId2" value="${userId2}" />
+  
+      <div class="header">
             <div class="playerA">
                  <div class="playerAAvatar"><img src="/image/avartar_in_circle.png"></div>
-                 <div class="playerAInformation">Id: ${userId1.getUserId1()} </br> 계급: 루비</div>
-                 	 <div class="PlayerArubyChips">
-	                 	<div class="ruby"></div>
-	                 	<div class="ruby"></div>
-	                 	<div class="ruby"></div>
-	                 	<div class="ruby"></div>
-	                 	<div class="ruby"></div>
-               	  </div>
+                 <div class="playerAInformation">Id: ${userId1} </br> 계급: 루비</div>
+                   <div class="PlayerArubyChips">
+                    <div class="ruby"></div>
+                    <div class="ruby"></div>
+                    <div class="ruby"></div>
+                    <div class="ruby"></div>
+                    <div class="ruby"></div>
+                  </div>
                  <div class="playerAScore">53(점)</div>
             </div>
 
-			<div class="playerB">
+      <div class="playerB">
                 <div class="playerBAvatar"><img src="/image/avartar2_in_circle.png"></div>
-                <div class="playerBInformation">Id: ${userId1.getUserId2()} </br> 계급: 사파이어</div>
+                <div class="playerBInformation">Id: ${userId2} </br> 계급: 사파이어</div>
                    <div class="PlayerBrubyChips">
                     <div class="ruby"></div>
                     <div class="ruby"></div>
@@ -89,13 +58,13 @@
                 <div class="playerBScore"> 점수
                 </div>
             </div>
-<%-- 		</c:when> --%>
+<%--    </c:when> --%>
 
-<%-- 		<c:otherwise>
-			<h1>로그인된 유저가 없습니다.</h1>
-		</c:otherwise>
+<%--    <c:otherwise>
+      <h1>로그인된 유저가 없습니다.</h1>
+    </c:otherwise>
 
-	</c:choose> --%>
+  </c:choose> --%>
          
        </div>
 
@@ -104,41 +73,43 @@
         <div class="gameArea">
             <div class="leftUserArea">
                 <ul class="leftUser"> 
-                  <li class="left_user_card card1"></li>
-                  <li class="left_user_card card2"></li>
-                  <li class="left_user_card card3"></li>
-                  <li class="left_user_card card4"></li>
-                  <li class="left_user_card card5"></li>
-                  <li class="left_user_card card6"></li>
-                  <li class="left_user_card card7"></li>
-                  <li class="left_user_card card8"></li>
-                  <li class="left_user_card card9"></li>
-                  <li class="left_user_card card10"></li>
+                  <li class="left_user_card card1"  value="0"></li>
+                  <li class="left_user_card card2"  value="1"></li>
+                  <li class="left_user_card card3"  value="2"></li>
+                  <li class="left_user_card card4"  value="3"></li>
+                  <li class="left_user_card card5"  value="4"></li>
+                  <li class="left_user_card card6"  value="5"></li>
+                  <li class="left_user_card card7"  value="6"></li>
+                  <li class="left_user_card card8"  value="7"></li>
+                  <li class="left_user_card card9"  value="8"></li>
+                  <li class="left_user_card card10" value="9"></li>
                 </ul>
             </div>
+            
              <div class="matchArea">
                     <div class="match">
-                    	 <div class="match_left_User_card">
+                       <div class="match_left_User_card">
                          <!-- <img src="image/card/back.png"> -->
-                        </div>
-                          <input type="button" value="match" class="match_button"></input>
-                    	<div class="match_right_User_card">
+                        </div>             
+                        <input type=button class="matchi_button" value="결과보기">
+                      <div class="match_right_User_card">
                         <!-- <img src="image/card/back.png"> -->
-                    	</div>
+                      </div>
                     </div>
-            </div> 
+             </div>
+             
             <div class="rightUserArea">
                 <ul class="rightUser">
-                	<li class="right_user_card card1"></li>
-                  <li class="right_user_card card2"></li>
-                  <li class="right_user_card card3"></li>
-                  <li class="right_user_card card4"></li>
-                  <li class="right_user_card card5"></li>
-                  <li class="right_user_card card6"></li>
-                  <li class="right_user_card card7"></li>
-                  <li class="right_user_card card8"></li>
-                  <li class="right_user_card card9"></li>
-                  <li class="right_user_card card10"></li>                 
+                  <li class="right_user_card card1" value="0"></li>
+                  <li class="right_user_card card2" value="1"></li>
+                  <li class="right_user_card card3" value="2"></li>
+                  <li class="right_user_card card4" value="3"></li>
+                  <li class="right_user_card card5" value="4"></li>
+                  <li class="right_user_card card6" value="5"></li>
+                  <li class="right_user_card card7" value="6"></li>
+                  <li class="right_user_card card8" value="7"></li>
+                  <li class="right_user_card card9" value="8"></li>
+                  <li class="right_user_card card10" value="9"></li>                 
                 </ul>
             </div>
             <div class="resultEvent">
@@ -148,8 +119,8 @@
        </div>
        <div class="clear"></div>
        <div class="botton_container">
-         
-        <a id="result" href="#modal">See the Result.</a>
+        
+        <!-- <a id="result" href="#modal">See the Result.</a> -->
                  
         <div class="remodal" data-remodal-id="modal">
           <button data-remodal-action="close" class="remodal-close"></button>
