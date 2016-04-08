@@ -3,18 +3,7 @@ package inpoker.user.model;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.annotation.WebListener;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionBindingEvent;
-import javax.servlet.http.HttpSessionBindingListener;
-
-import org.glassfish.jersey.servlet.WebServletConfig;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 public class Users {
-	private static final Logger logger = LoggerFactory.getLogger(Users.class);
 	private static Users users = null;
 	private static Map<String, User> loginUsers = new HashMap<String, User>();
 	
@@ -29,9 +18,7 @@ public class Users {
 	}
 
 	public void addUser(User user) {
-		logger.debug("LoginUser : {}", user);
 		loginUsers.put(user.getUserId(), user);
-		logger.debug("현재 접속자 수 : {}", getUserCount());
 	}
 	
 	public User getUser(String userId) {
@@ -50,17 +37,11 @@ public class Users {
 		Users.users = users;
 	}
 
-	public static Map<String, User> getLoginUsers() {
+	public Map<String, User> getLoginUsers() {
 		return loginUsers;
 	}
 
 	public static void setLoginUsers(Map<String, User> loginUsers) {
 		Users.loginUsers = loginUsers;
-	}
-
-	public static Logger getLogger() {
-		return logger;
-	}
-	
-	
+	}	
 }

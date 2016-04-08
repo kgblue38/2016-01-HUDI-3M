@@ -7,7 +7,6 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import core.utils.SessionUtils;
-import inpoker.room.model.Rooms;
 import inpoker.user.dao.UserDao;
 import inpoker.user.model.User;
 import inpoker.user.model.UserLoginFailedException;
+import inpoker.user.model.UserNotFoundException;
 import inpoker.user.model.Users;
 
 @RequestMapping("/user")
@@ -42,15 +41,17 @@ public class UserController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@RequestParam String userId, @RequestParam String userPassword, HttpServletRequest request) {
 		try {
-			isCorrectLogin(userId, userPassword);
+			User dbUser = userDao.findUserById(userId);
+			dbUser.checkCorrectLogin(userId, userPassword);
+			User user = userDao.findUserById(userId);
+			users.addUser(user);
+			request.getSession().setAttribute("user", user);
+			return "redirect:/room/channel";
+		} catch (UserNotFoundException e) {
+			return "redirect:/";
 		} catch (UserLoginFailedException e) {
 			return "redirect:/";
 		}
-		
-		User user = userDao.findUserById(userId);
-		users.addUser(user);
-		request.getSession().setAttribute("user", user);
-		return "redirect:/room/channel";
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
@@ -59,16 +60,9 @@ public class UserController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping(value = "", method = RequestMethod.PUT)
-	public String update(@RequestParam String userPassword, HttpSession session) {
+	@RequestMapping(value = "/", method = RequestMethod.PUT)
+	public String update(@RequestParam String userPassword, HttpSession session) throws UserNotFoundException {
 		userDao.updateUser(userPassword, SessionUtils.getUserValue(session, "user"));
 		return "redirect:/room/channel";
-	}
-	
-	private void isCorrectLogin(String userId, String userPassword) throws UserLoginFailedException {
-		User dbUser = userDao.findUserById(userId);
-		if (dbUser == null || !dbUser.isCorrectLogin(userId, userPassword)) {
-			throw new UserLoginFailedException();
-		}
 	}
 }

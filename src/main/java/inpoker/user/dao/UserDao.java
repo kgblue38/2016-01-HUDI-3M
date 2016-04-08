@@ -3,7 +3,6 @@ package inpoker.user.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -11,8 +10,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import core.utils.SessionUtils;
 import inpoker.user.model.User;
+import inpoker.user.model.UserNotFoundException;
 
 @Repository
 public class UserDao {
@@ -23,12 +22,10 @@ public class UserDao {
 		String sql = "INSERT INTO users (userId, userPassword, userEmail) VALUES (?, ?, ?)";
 		jdbcTemplate.update(sql, user.getUserId(), user.getUserPassword(), user.getUserEmail());
 	}
-	
-	public User findUserById(String userId) {
+
+	public User findUserById(String userId) throws UserNotFoundException {
 		try {
 			String sql = "SELECT pid, userId, userPassword, userEmail FROM users WHERE userId = ?";
-			// try catch해준 이유 - 레코드 비어있을때 익셉션 처리 안해주면, ajax통신에서 클라로 데이터 전달 안해줌, 아래링크 참고
-			//http://www.mkyong.com/spring/queryforobject-throws-emptyresultdataaccessexception-when-record-not-found/ 
 			RowMapper<User> rm = new RowMapper<User>() {
 				@Override
 				public User mapRow(ResultSet rs, int index) throws SQLException {
@@ -38,12 +35,16 @@ public class UserDao {
 			};
 			return jdbcTemplate.queryForObject(sql, rm, userId);
 		} catch (EmptyResultDataAccessException e) {
-			return null;
+			throw new UserNotFoundException();
 		}
 	}
-	
-	public void updateUser(String userPassword, User user) {
-		String sql = "UPDATE users SET userPassword = ? WHERE userId = ?";
-		jdbcTemplate.update(sql, userPassword, user.getUserId());
+
+	public void updateUser(String userPassword, User user) throws UserNotFoundException {
+		try {
+			String sql = "UPDATE users SET userPassword = ? WHERE userId = ?";
+			jdbcTemplate.update(sql, userPassword, user.getUserId());
+		} catch (EmptyResultDataAccessException e) {
+			throw new UserNotFoundException();
+		}
 	}
 }

@@ -2,13 +2,8 @@ package inpoker.room.model;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class Rooms {
-	private static final Logger logger = LoggerFactory.getLogger(Rooms.class);
 	private static Rooms rooms = null;
 	public static Rooms getRooms() {
 		return rooms;
@@ -18,16 +13,12 @@ public class Rooms {
 		Rooms.rooms = rooms;
 	}
 
-	public static Map<Integer, Room> getCreatedRooms() {
+	public Map<Integer, Room> getCreatedRooms() {
 		return createdRooms;
 	}
 
 	public static void setCreatedRooms(Map<Integer, Room> createdRooms) {
 		Rooms.createdRooms = createdRooms;
-	}
-
-	public static Logger getLogger() {
-		return logger;
 	}
 
 	private static Map<Integer, Room> createdRooms = new HashMap<Integer, Room>();
@@ -44,7 +35,6 @@ public class Rooms {
 
 	public void addRoom(Room room) {
 		createdRooms.put(room.getRoomId(), room);
-		logger.debug("L : {}", room);
 	}
 	
 	public void deleteRoom(int roomId) {

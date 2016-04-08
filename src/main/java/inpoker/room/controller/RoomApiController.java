@@ -20,9 +20,6 @@ import inpoker.room.model.Rooms;
 public class RoomApiController {
 	@RequestMapping(value = "/wait/ready", method = RequestMethod.PUT)
 	public Room ready(@RequestParam String userId, @RequestParam int roomId, @RequestParam String userStatus) {
-		System.out.println("userId : " + userId);
-		System.out.println("roomId : " + roomId);
-		System.out.println("userStatus : " + userStatus);
 		Rooms.getInstance().getRoom(roomId).setUserStatus(userId, userStatus);
 		return Rooms.getInstance().getRoom(roomId);
 	}

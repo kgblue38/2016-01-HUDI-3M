@@ -12,10 +12,6 @@ import inpoker.room.model.Room;
 public class RoomMatchingController {
 	@RequestMapping(value="/match", method= {RequestMethod.PUT})
 	public Room match(@RequestParam String userId, @RequestParam String userStatus){
-		
-		
-		
 		return null;
-		
 	}
 }

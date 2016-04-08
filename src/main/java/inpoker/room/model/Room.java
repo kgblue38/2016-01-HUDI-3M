@@ -12,7 +12,7 @@ public class Room {
 	
 	public Room(int roomId, String roomStatus, RoomUser roomUser1, RoomUser roomUser2) {
 		this.roomId = roomId;
-		this.roomStatus = roomStatus; // start,notStart 상태를 가진다.
+		this.roomStatus = roomStatus; 
 		this.roomUser1 = roomUser1;
 		this.roomUser2 = roomUser2;
 	}
@@ -118,7 +118,7 @@ public class Room {
 		this.canStart = canStart;
 	}
 
-	public void deleteUser(User user, int roomId) {
+	public void exitUser(User user, int roomId) {
 		if (roomUser1 != null && roomUser1.isMatchedUserId(user.getUserId())) {
 			this.roomUser1 = null;
 			this.canStart = false;

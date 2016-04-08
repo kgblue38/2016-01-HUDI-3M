@@ -1,5 +1,5 @@
 package inpoker.user.model;
 
 @SuppressWarnings("serial")
-public class UserLoginFailedException extends Exception{
+public class UserNotFoundException extends Exception {
 }
