@@ -1,6 +1,6 @@
 var CHANNEL = (function() {
 	var $gameStart = $('.matchTest');
-	var baseURL = "http://localhost:8080";
+	var baseURL = "125.209.194.165:8080";
 	var timerId;
 	Handlebars.registerPartial('userPartial', template.userSource);
     var userlistTemplate = Handlebars.compile(template.userlistSource);

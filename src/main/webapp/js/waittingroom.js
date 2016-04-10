@@ -1,6 +1,6 @@
 var TODO = (function(window){
 	// http://125.209.194.165 베포하면 요기로 접근해야함, 테스트 위해 로컬로 접근
-	var baseURL = "http://localhost:8080";
+	var baseURL = "125.209.194.165:8080";
 	var $user1Button = $(".user1_ready_button");
 	var $user2Button = $(".user2_ready_button");
 	var user1Id = $user1Button.siblings('.user_info').text();

@@ -1,6 +1,6 @@
 var GAME = (function() {
 
-	var baseURL = "http://localhost:8080";
+	var baseURL = "125.209.194.165:8080";
 	var myUserId = $('input[name="myUserId"]').val();
 
 	var user1 = {
