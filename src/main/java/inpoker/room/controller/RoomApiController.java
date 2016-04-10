@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import core.utils.SessionUtils;
+import inpoker.gamemain.model.GameManager;
 import inpoker.room.model.GameAutoStartUsers;
 import inpoker.room.model.MatchJsonData;
 import inpoker.room.model.Room;
@@ -49,5 +50,95 @@ public class RoomApiController {
 	@RequestMapping(value = "/channel/rooms", method = RequestMethod.PUT)
 	public Object checkRooms(){
 		return Rooms.getInstance().getCreatedRooms().values();
+	}
+	
+	@RequestMapping(value = {"/start/users"}, method = {RequestMethod.POST})
+	public void userInfo(@RequestParam String leftUser, @RequestParam String rightUser) {
+
+		GameManager.leftUser = leftUser;
+		GameManager.rightUser = rightUser;
+	}
+	
+	//TODO 배열을 서버쪽에서 받는 방법 찾아야 한다.
+	@RequestMapping(value = {"/start/card"}, method = {RequestMethod.POST})
+	public void userPutCard(@RequestParam String userId, @RequestParam int user1PutCard, @RequestParam int user2PutCard) {
+
+		if(GameManager.leftUser.equals(userId)){
+			GameManager.user1Flag = user1PutCard;
+		}else if(GameManager.rightUser.equals(userId)){
+			GameManager.user2Flag = user2PutCard;
+		}else{
+			System.out.println("Id를 찾을 수 없습니다.");
+			System.out.println(userId);
+		}
+		
+		System.out.println("user1 put card status :" + GameManager.user1Flag);
+		System.out.println("user2 put card status :" + GameManager.user2Flag);
+		System.out.println("Ajax success");
+
+	}
+
+	@RequestMapping(value = {"/game/cardCheck"}, method = {RequestMethod.GET})
+	public int checkUserCard(HttpServletResponse response) throws IOException {
+		
+		if(GameManager.user1Flag >= 0 && GameManager.user2Flag < 0){
+			return 1;
+		}else if(GameManager.user1Flag < 0 && GameManager.user2Flag >= 0){
+			return 2;
+		}else if(GameManager.user1Flag >= 0 && GameManager.user2Flag >= 0){
+			return 3;
+		}
+		return -1;
+	}
+		
+	@RequestMapping(value = {"/game/cardCheckInit"}, method = {RequestMethod.POST})
+	public void UserCardInit(@RequestParam int value) throws IOException {
+		
+		GameManager.user1Flag = value;
+		GameManager.user2Flag = value;
+		
+	}
+	
+	
+	@RequestMapping(value = {"/game/cardIdxCheck"}, method = {RequestMethod.GET})
+	public int checkCardIdx(HttpServletResponse response) throws IOException {
+		
+		if(GameManager.leftUserCardIdx >= 0 && GameManager.rightUserCardIdx >= 0)
+			return 1;
+		else
+			return -1;
+	}
+	
+	@RequestMapping(value = {"/game/cardIdx"}, method = {RequestMethod.POST})
+	public void UserCardIdx(@RequestParam String userId, @RequestParam int idx) throws IOException {
+		
+		if(GameManager.leftUser.equals(userId)){
+			GameManager.leftUserCardIdx = idx;
+		}else if(GameManager.rightUser.equals(userId)){
+			GameManager.rightUserCardIdx = idx;
+		}else{
+			System.out.println("Id를 찾을 수 없습니다.");
+			System.out.println(userId);
+		}
+	}
+
+	@RequestMapping(value = {"/game/gmaeResult"}, method = {RequestMethod.POST})
+	public int gameResult(@RequestParam int leftNum, @RequestParam int rightNum) throws IOException {
+		
+		
+		System.out.println("좌우의 숫자는 각각 "+leftNum + rightNum);
+		
+		int result;
+		
+		if(leftNum > rightNum){ //왼쪽 유저가 이겼을 때 
+			result = 1; 
+		}else if (leftNum < rightNum){ //오른쪽 유저가 이겼을 때 
+			result = 2;		
+		}else{
+			result = 3;
+		}
+		
+		System.out.println("result : " + result);
+		return result;
 	}
 }
