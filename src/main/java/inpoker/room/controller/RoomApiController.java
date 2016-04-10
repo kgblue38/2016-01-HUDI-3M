@@ -45,4 +45,9 @@ public class RoomApiController {
 	public Object checkUsers() {
 		return Users.getInstance().getLoginUsers().values();
 	}
+	
+	@RequestMapping(value = "/channel/rooms", method = RequestMethod.PUT)
+	public Object checkRooms(){
+		return Rooms.getInstance().getCreatedRooms().values();
+	}
 }

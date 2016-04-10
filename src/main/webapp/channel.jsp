@@ -21,26 +21,13 @@
 </head>
 <body>
 	<div class="col-md-6 col-md-offset-6">
-		
-		<table class="table" id="info" style="border-style: solid; border-color:brown; margin-right:10px;float:right">
-			<tr>
-				<th id="avatarTable" rowspan="4">{{avatar]]</th>
-				<td>ID</td>
-				<td class="sessionUserId">${sessionScope.user.userId}</td>
-			</tr>
-			<tr>
-				<td>Level</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>승 / 패</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>승률</td>
-				<td></td>
-			</tr>
-		</table>
+	
+
+		<ul class="list-group" style="border-style: solid; border-color:brown; margin-right:10px;float:right">
+		  <li class="list-group-item">ID : ${sessionScope.user.userId}</li>
+		  <li class="list-group-item">Email : ${sessionScope.user.userEmail}</li>
+		  <li class="list-group-item">Third item</li>
+		</ul>
 		<div class="button_container" style="float:right">
 			<button type="button"><a href="/user/logout">로그아웃</a></button>
 			<a href="#modal"><button type="button">개인정보수정 </button></a>
@@ -49,19 +36,14 @@
 	</div>
 
 	<div class="col-md-6">
+		Room List
 		<table class="table">
-			<tr>
+			<!-- <tr>
 				<th>Room#</th>
 				<th>Player</th>
 				<th>status</th>
-			</tr>
-			<c:forEach items="${rooms}" var="room">
-			<tr>
-				<td>${room.roomId}</td>
-				<td>포커의제왕재성</td>
-				<td>1/2</td>
-			</tr>
-			</c:forEach>
+			</tr> -->
+			
 		</table>
 
 	</div>
@@ -170,7 +152,7 @@
     <p id="modal1Desc">
     	개인정보를 수정하세요.
     </p>
-    <label>Id : {{user.userId}}</label> <br>
+    <label>Id : ${sessionScope.user.userId}</label> <br>
     <label>Password : </label><input placeholder="userPassword" name="userPassword">
   </div>
   <br>

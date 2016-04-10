@@ -10,6 +10,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/remodal.css">
+<link rel="stylesheet" type="text/css" href="/css/remodal-default-theme.css">
 </head>
 <body>
 	<script src="lib/jquery-1.12.0.js"></script>
@@ -44,33 +46,28 @@
 			</div>
 		</c:when>
 		<c:otherwise>
-			<div id="signUp">Sign Up</div>
-			<div id="login">Login</div>
+			<!-- <div id="signUp">Sign Up</div> -->
+ 			<div id="signUp"><a href="#modal_signup">Sign Up</a></div>
+ 			<a href="#modal"><div id="login">로그인</div></a>
 		</c:otherwise>
 	</c:choose>
 
-	<div class="SignUp-box animated fadeInUp">
+	<!-- <div class="SignUp-box animated fadeInUp">
 		<div class="box-header">
 			<h2>Sign Up</h2>
 		</div>
-		<!-- <form class="form" action="/form_action.jsp" method="post"> -->
 		<form class="signUpForm" action="/user" method="post">
 			<div id="signup-container">
-			<!-- 	<div class="pid">
-					<label for="pid" class="required"></label> </br> 
-					<input type="hidden" name="pid" id="pid" value=0></input>
-					</br>
-				</div> -->
 				<div class="userId">
-					<label for="userId" class="required">UserId</label> </br> 
-					<input type="text" placeholder="Input Id" name="userId" id="userId"></input>
+					<label for="userId" class="required">UserId</label> </br> <input
+						type="text" placeholder="Input Id" name="userId" id="userId"></input>
 					</br>
 					<button class="idConfirm">아이디 확인</button>
 				</div>
 				<div class="userPassword">
 					<label for="userPassword" class="required">Password</label></br> <input
-						type="password" placeholder="Input Password"
-						name="userPassword" id="userPassword"></input>
+						type="password" placeholder="Input Password" name="userPassword"
+						id="userPassword"></input>
 				</div>
 				<div class="passwordConfirm">
 					<label for="passwordConfirm" class="required">Confirm</label> </br> <input
@@ -88,30 +85,57 @@
 				<br />
 			</div>
 		</form>
+	</div> -->
+
+	<div class="remodal" data-remodal-id="modal_signup" role="dialog"
+		aria-labelledby="modal1Title" aria-describedby="modal1Desc">
+		<button data-remodal-action="close" class="remodal-close"
+			aria-label="Close"></button>
+		<form class="loginForm" action="/user/login" method="post">
+			<div id="signup-container">
+				<h2 id="modal1Title" style="color:black">Signup HERE.</h2>
+				<p id="modal1Desc">즐겁디 즐거운 게임 인디언포커에 오셨군요. 많이 하세요.</p>
+				<div class="userId">
+					<label for="userId" class="required">UserId</label> </br> <input
+						type="text" placeholder="Input Id" name="userId" id="userId"></input>
+					</br>
+					<button class="idConfirm">아이디 확인</button>
+				</div>
+				<div class="userPassword">
+					<label for="userPassword" class="required">Password</label></br> <input
+						type="password" placeholder="Input Password" name="userPassword"
+						id="userPassword"></input><br><br>
+				</div>
+				<div class="passwordConfirm">
+					<label for="passwordConfirm" class="required">Confirm</label> </br> <input
+						type="password" placeholder="Confirm Password"
+						name="passwordConfirm" id="passwordConfirm"></input><br><br>
+				</div>
+				<div class="userEmail">
+					<label for="userEmail" class="required">email</label> </br> <input
+						type="email" placeholder="Input Email" name="userEmail"
+						id="userEmail"><br>
+				</div>
+			</div>
+			<br>
+			<button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+			<input type="submit" value="OK" />
+		</form>
 	</div>
 
-	<div class="login-box animated fadeInUp">
-		<div class="box-header">
-			<h2>LogIn</h2>
-		</div>
+	<div class="remodal" data-remodal-id="modal" role="dialog"
+		aria-labelledby="modal1Title" aria-describedby="modal1Desc">
+		<button data-remodal-action="close" class="remodal-close"
+			aria-label="Close"></button>
 		<form class="loginForm" action="/user/login" method="post">
-			<div id="login-container">
-				<div id="id-container">
-					<label for="userId">UserId</label> <br /> <input type="text"
-						placeholder="Input Id" name="userId" id="loginUserId"> <br />
-					<span class="warn">Please input id</span>
-				</div>
-
-				<div id="userPassword-container">
-					<label for="userPassword">Password</label> <br /> <input
-						type="password" placeholder="Input Password" name="userPassword"
-						id="loginUserPassword"> <br /> <span class="warn">Please
-						input password</span>
-				</div>
-				<div id="loginSubmit">
-					<button type="submit">Login</button>
-				</div>
-				<br />
+			<div>
+				<h2 id="modal1Title" style="color:black">Login HERE.</h2>
+				<p id="modal1Desc">즐겁디 즐거운 게임 인디언포커에 오셨군요. 많이 하세요.</p>
+				<label>Id :</label> <input type="text" placeholder="Input Id" name="userId" id="loginUserId"> <br><br> <label>Password	: </label><input type="password" placeholder="Input Password" name="userPassword" id="loginUserPassword">
+			</div>
+			<br>
+			<button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+			<input type="submit" value="OK" />
 		</form>
 	</div>
 
@@ -121,12 +145,7 @@
 			$("#signUp").on("click", function() {
 				$('.SignUp-box').fadeIn(1000).css('display', 'block');
 			});
-			$("#login").on("click", function() {
-				$('.login-box').fadeIn(1000).css('display', 'block');
-			});
-			/* $("#logout").on("click", function() {
-				$('.login-box').fadeIn(1000).css('display', 'block');
-			}); */
+			
 			$('#logo').addClass('animated fadeInDown');
 			$("input:text:visible:first").focus();
 		});
@@ -146,5 +165,6 @@
 	<script src="/js/signup.js"></script>
 	<script src="/js/login.js"></script>
 	<script src="/js/init.js"></script>
+	<script src="/js/remodal.js"></script>
 </body>
 </html>

@@ -15,3 +15,14 @@ template.userSource = '<li class="media">' +
 template.userlistSource = '{{#each loginUsers}}'
     					+ '{{#> userPartial}}userPartial load fail{{/userPartial}}'
     					+ '{{/each}}';
+
+template.roomSource = '<tr>' +
+                      '<td> {{roomId}} </td>' +
+                      '<td> {{roomUser1.userId}} vs. {{roomUser2.userId}} </td>' + 
+                      '<td> {{roomStatus}} </td>' + 
+                      '</tr>';
+
+template.roomlistSource =  '{{#each createdRooms}}' +
+                          '{{#> roomPartial}} room load failed.{{/roomPartial}}' +
+                          '{{/each}}';
+

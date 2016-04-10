@@ -22,7 +22,7 @@ public class RoomController {
 	@RequestMapping("/channel")
 	public String goChannel(Model model, HttpSession session) {
 		model.addAttribute("loginUsers", users.getLoginUsers().values());
-		model.addAttribute("rooms", rooms.getCreatedRooms());
+		model.addAttribute("rooms", rooms.getCreatedRooms().values());
 		return "/channel.jsp";
 	}
 	

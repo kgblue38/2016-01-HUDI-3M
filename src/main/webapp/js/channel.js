@@ -4,6 +4,8 @@ var CHANNEL = (function() {
 	var timerId;
 	Handlebars.registerPartial('userPartial', template.userSource);
     var userlistTemplate = Handlebars.compile(template.userlistSource);
+    Handlebars.registerPartial('roomPartial', template.roomSource);
+    var roomlistTemplate = Handlebars.compile(template.roomlistSource)
     
 	var api = {
 		clickReady : function(e){
@@ -39,6 +41,17 @@ var CHANNEL = (function() {
 				var userlistHTML = userlistTemplate(userlist);
 				$(".user-list").html(userlistHTML);
 			});
+		},
+		updateRoomList : function(){
+			$.ajax({
+				url : (baseURL + "/api/room/channel/rooms"),
+				type : "PUT"
+			}).done(function(createdRooms){
+				var roomslist = {};
+				roomslist["createdRooms"] = createdRooms;
+				var roomlistHTML = roomlistTemplate(roomslist);
+				$(".table").html(roomlistHTML);
+			});
 		}
 	}
 
@@ -49,6 +62,7 @@ var CHANNEL = (function() {
 	function init() {
 		$gameStart.on('click', gameStart);
 		window.setInterval(function(){api.updateUserList();}, 1000);
+		window.setInterval(function(){api.updateRoomList();}, 1000);
 	}
 
 	return {
