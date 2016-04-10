@@ -5,6 +5,8 @@ import java.util.Map;
 
 public class Rooms {
 	private static Rooms rooms = null;
+	private static Map<Integer, Room> createdRooms = new HashMap<Integer, Room>();
+
 	public static Rooms getRooms() {
 		return rooms;
 	}
@@ -20,8 +22,6 @@ public class Rooms {
 	public static void setCreatedRooms(Map<Integer, Room> createdRooms) {
 		Rooms.createdRooms = createdRooms;
 	}
-
-	private static Map<Integer, Room> createdRooms = new HashMap<Integer, Room>();
 	
 	private Rooms() {
 	}
@@ -48,19 +48,13 @@ public class Rooms {
 	public int getRoomCount() {
 		return createdRooms.size();
 	}
-	
-	//method for test 
-	public Room getRoom() {
-		Room room = null;
-		Object[] temp = createdRooms.values().toArray();
-		room = (Room)temp[0];
-		return room;
-	}
 
 	@Override
 	public String toString() {
-		return "Rooms [getRoomCount()=" + getRoomCount() + ", getRoom()=" + getRoom() + ", getClass()=" + getClass()
-				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+		return "Rooms [getCreatedRooms()=" + getCreatedRooms() + ", getRoomCount()=" + getRoomCount() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
+
+	
 
 }

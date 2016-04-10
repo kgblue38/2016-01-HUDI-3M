@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +27,7 @@
 			<tr>
 				<th id="avatarTable" rowspan="4">{{avatar]]</th>
 				<td>ID</td>
-				<td></td>
+				<td class="sessionUserId">${sessionScope.user.userId}</td>
 			</tr>
 			<tr>
 				<td>Level</td>
@@ -70,28 +72,26 @@
 			<div class="panel-heading">User List</div>
 			<div class="panel-body" style="overflow: auto; height: 400px">
 				<ul class="media-list">
-				<%-- ${loginUsers}
-                <c:forEach items="${loginUsers.content}" var="user">
+                <c:forEach items="${loginUsers}" var="user">
 					<li class="media">
 						<div class="media-body">
 							<div class="media">
 								<a class="pull-left" href="#"> <img
 									class="media-object img-circle" style="max-height: 40px;"
-									src="assets/img/user.png" />
+									src="/image/avartar_in_circle.png" />
 								</a>
 								<div class="media-body">
-									<h5><c:out value="${user.value}"/> | 사파이어</h5>
+									<h5>${user.userId} | 사파이어</h5>
 									<small class="text-muted"> 3시간째 게임중 </small>
 								</div>
 							</div>
 						</div>
 					</li>
-				</c:forEach> --%> 더 알아봅시다
+				</c:forEach>
 				</ul>
 			</div>
 		</div>
-		<a href="/room/wait"><button>게임 시작</button></a>
-		<a href="/room/wait/matching"><button>매칭 테스트</button></a>
+		<div class="matchTest"><button>게임 빠른 시작</button></div>
 	</div>
 
 
@@ -164,7 +164,7 @@
 							</div>
 							<div class="remodal" data-remodal-id="modal" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
   <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
-  <form method="post" action="/user">
+    <form method="post" action="/user">
   <input type="hidden" name="_method" value="PUT" />
   <div>
     <h2 id="modal1Title">개인정보수정</h2>
@@ -194,7 +194,7 @@
 		</div>
 	</div>
 </body>
-<script type="text/javascript" src="/js/waittingroom.js"></script>
+<script type="text/javascript" src="/js/channel.js"></script>
 <script src="/js/remodal.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"

@@ -41,9 +41,8 @@ public class UserController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@RequestParam String userId, @RequestParam String userPassword, HttpServletRequest request) {
 		try {
-			User dbUser = userDao.findUserById(userId);
-			dbUser.checkCorrectLogin(userId, userPassword);
 			User user = userDao.findUserById(userId);
+			user.checkCorrectLogin(userId, userPassword);
 			users.addUser(user);
 			request.getSession().setAttribute("user", user);
 			return "redirect:/room/channel";
@@ -60,9 +59,10 @@ public class UserController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.PUT)
+	@RequestMapping(value = "", method = RequestMethod.PUT)
 	public String update(@RequestParam String userPassword, HttpSession session) throws UserNotFoundException {
 		userDao.updateUser(userPassword, SessionUtils.getUserValue(session, "user"));
+		System.out.println("put problem");
 		return "redirect:/room/channel";
 	}
 }

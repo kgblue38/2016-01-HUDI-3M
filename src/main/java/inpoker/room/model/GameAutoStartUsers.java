@@ -21,10 +21,14 @@ public class GameAutoStartUsers {
 	
 	public static MatchJsonData addUser(User user) {
 		autoGameUsers.put(user.getUserId(), user);
+		System.out.println(autoGameUsers.size());
 		if(autoGameUsers.size() <= 1){
-			return MatchJsonData.getFail();
-		}else if(autoGameUsers.size() >= 2){
-			return MatchJsonData.getSuccess(makeRoom());
+			MatchJsonData data =MatchJsonData.getFail();
+			System.out.println(data);
+			return data;
+		}else if(autoGameUsers.size() == 2){
+			MatchJsonData data = MatchJsonData.getSuccess(makeRoom());
+			return data;
 		}
 		return null;
 	}

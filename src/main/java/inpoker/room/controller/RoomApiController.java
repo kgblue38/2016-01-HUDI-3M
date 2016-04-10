@@ -15,6 +15,7 @@ import inpoker.room.model.GameAutoStartUsers;
 import inpoker.room.model.MatchJsonData;
 import inpoker.room.model.Room;
 import inpoker.room.model.Rooms;
+import inpoker.user.model.User;
 @RestController
 @RequestMapping("/api/room")
 public class RoomApiController {
@@ -31,8 +32,12 @@ public class RoomApiController {
 	}
 	
 	@RequestMapping(value="/channel/match", method = RequestMethod.PUT)
-	public MatchJsonData match(@RequestParam String userId, HttpSession session ){
-		return GameAutoStartUsers.addUser(SessionUtils.getUserValue(session, userId));		
+	public int match(@RequestParam String userId, HttpSession session){
+		User user = SessionUtils.getUserValue(session, "user");
+		MatchJsonData data = GameAutoStartUsers.addUser(user);	
+		int roomId = data.getRoomId();
+		System.out.println("match() data : " + data);
+		return roomId;
 	}
 	
 }

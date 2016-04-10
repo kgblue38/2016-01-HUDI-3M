@@ -17,7 +17,12 @@ public class MatchJsonData {
 	public static MatchJsonData getFail() {
 		return new MatchJsonData("fail");
 	}
-	public static MatchJsonData getTimeout() {
-		return new MatchJsonData("timeout");
+
+	public int getRoomId() {
+		return roomId;
+	}
+	@Override
+	public String toString() {
+		return "MatchJsonData [result=" + result + ", roomId=" + roomId + "]";
 	}
 }

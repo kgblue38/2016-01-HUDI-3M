@@ -1,31 +1,52 @@
 var CHANNEL = (function() {
-	var $button = $('button[type="button"]');
-	var sock = SockJS("http://127.0.0.1:8080/channelChat");
-	sock.onmessage = onMessage;
-	sock.onclose = onClose;
-	
-	function sendMessage() {
-		console.debug("in sendMessage()");
-		sock.send($button.text());
+	console.log("dd");
+	var $gameStart = $('.matchTest');
+	console.log($gameStart);
+	var baseURL = "http://localhost:8080";
+	var timerId;
+	var api = {
+		clickReady : function(e){
+			console.log("chih");
+			$eTarget = $(e.target);
+			var data = {};
+			var userId = $('.sessionUserId').text();
+			data.userId = userId;
+			$.ajax({
+				url : (baseURL + "/api/room/channel/match"),
+				type : "PUT",
+				data : data
+			}).done(function(matchJsonData) {
+					console.log(matchJsonData);
+					if (matchJsonData == -1) {
+						console.log("fail");
+						return;
+					}
+					if (matchJsonData != -1) {
+						console.log("success");
+						window.location.href = ('/room/wait?roomId=' + matchJsonData);
+						
+					}
+				
+			}, 1000);
+		}
 	}
-	
-	function onMessage(e) {
-		var data = e.data;
-		$('.media-list').append("<li>" + data + "</li>");
+
+	function gameStart(e){
+		window.setInterval(function(){api.clickReady(e)}, 1000);
 	}
-	
-	function onClose(e) {
-		$('.media-list').append("<li>유저한명퇴장</li>");
-	}
-	
-	
-	
+
 	function init() {
-		$button.on('click', sendMessage);
+		$gameStart.on('click', gameStart);
+	
 	}
 
 	return {
 		init : init
 	};
 	
+	 
 })();
+
+$(function(){
+	CHANNEL.init();
+})

@@ -21,7 +21,7 @@ public class RoomController {
 	
 	@RequestMapping("/channel")
 	public String goChannel(Model model, HttpSession session) {
-		model.addAttribute("loginUsers", users.getLoginUsers());
+		model.addAttribute("loginUsers", users.getLoginUsers().values());
 		model.addAttribute("rooms", rooms.getCreatedRooms());
 		return "/channel.jsp";
 	}
@@ -31,11 +31,6 @@ public class RoomController {
 		Room room = rooms.getRoom(roomId);
 		model.addAttribute("room", room);
 		return "/waittingroom.jsp";
-	}
-	
-	@RequestMapping("/wait/matching")
-	public String match(HttpSession session, Model model){
-		return null;
 	}
 	
 	@RequestMapping("/wait/exit")
