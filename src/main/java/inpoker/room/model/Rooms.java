@@ -7,11 +7,11 @@ public class Rooms {
 	private static Rooms rooms = null;
 	private static Map<Integer, Room> createdRooms = new HashMap<Integer, Room>();
 
-	public static Rooms getRooms() {
+	public Rooms getRooms() {
 		return rooms;
 	}
 
-	public static void setRooms(Rooms rooms) {
+	public void setRooms(Rooms rooms) {
 		Rooms.rooms = rooms;
 	}
 
@@ -19,7 +19,7 @@ public class Rooms {
 		return createdRooms;
 	}
 
-	public static void setCreatedRooms(Map<Integer, Room> createdRooms) {
+	public void setCreatedRooms(Map<Integer, Room> createdRooms) {
 		Rooms.createdRooms = createdRooms;
 	}
 	

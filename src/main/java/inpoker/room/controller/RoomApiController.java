@@ -16,6 +16,7 @@ import inpoker.room.model.MatchJsonData;
 import inpoker.room.model.Room;
 import inpoker.room.model.Rooms;
 import inpoker.user.model.User;
+import inpoker.user.model.Users;
 @RestController
 @RequestMapping("/api/room")
 public class RoomApiController {
@@ -40,4 +41,8 @@ public class RoomApiController {
 		return roomId;
 	}
 	
+	@RequestMapping(value = "/channel/users", method = RequestMethod.PUT)
+	public Object checkUsers() {
+		return Users.getInstance().getLoginUsers().values();
+	}
 }

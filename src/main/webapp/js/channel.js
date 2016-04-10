@@ -1,12 +1,12 @@
 var CHANNEL = (function() {
-	console.log("dd");
 	var $gameStart = $('.matchTest');
-	console.log($gameStart);
 	var baseURL = "http://localhost:8080";
 	var timerId;
+	Handlebars.registerPartial('userPartial', template.userSource);
+    var userlistTemplate = Handlebars.compile(template.userlistSource);
+    
 	var api = {
 		clickReady : function(e){
-			console.log("chih");
 			$eTarget = $(e.target);
 			var data = {};
 			var userId = $('.sessionUserId').text();
@@ -27,7 +27,18 @@ var CHANNEL = (function() {
 						
 					}
 				
-			}, 1000);
+			});
+		},
+		updateUserList : function() {
+			$.ajax({
+				url : (baseURL + "/api/room/channel/users"),
+				type : "PUT"
+			}).done(function(loginUsers) {
+				var userlist = {};
+				userlist["loginUsers"] = loginUsers;
+				var userlistHTML = userlistTemplate(userlist);
+				$(".user-list").html(userlistHTML);
+			});
 		}
 	}
 
@@ -37,7 +48,7 @@ var CHANNEL = (function() {
 
 	function init() {
 		$gameStart.on('click', gameStart);
-	
+		window.setInterval(function(){api.updateUserList();}, 1000);
 	}
 
 	return {

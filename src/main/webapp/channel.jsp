@@ -20,7 +20,6 @@
 
 </head>
 <body>
-	
 	<div class="col-md-6 col-md-offset-6">
 		
 		<table class="table" id="info" style="border-style: solid; border-color:brown; margin-right:10px;float:right">
@@ -71,7 +70,7 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading">User List</div>
 			<div class="panel-body" style="overflow: auto; height: 400px">
-				<ul class="media-list">
+				<ul class="user-list">
                 <c:forEach items="${loginUsers}" var="user">
 					<li class="media">
 						<div class="media-body">
@@ -194,8 +193,11 @@
 		</div>
 	</div>
 </body>
+<script src="/lib/handlebars-v4.0.5.js"></script>
+<script src="/js/template.js"></script>
 <script type="text/javascript" src="/js/channel.js"></script>
 <script src="/js/remodal.js"></script>
+
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
 	integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"

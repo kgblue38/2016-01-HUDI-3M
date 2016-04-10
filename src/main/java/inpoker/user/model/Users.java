@@ -29,11 +29,11 @@ public class Users {
 		return loginUsers.size();
 	}
 
-	public static Users getUsers() {
+	public Users getUsers() {
 		return users;
 	}
 
-	public static void setUsers(Users users) {
+	public void setUsers(Users users) {
 		Users.users = users;
 	}
 
@@ -41,7 +41,7 @@ public class Users {
 		return loginUsers;
 	}
 
-	public static void setLoginUsers(Map<String, User> loginUsers) {
+	public void setLoginUsers(Map<String, User> loginUsers) {
 		Users.loginUsers = loginUsers;
 	}	
 }

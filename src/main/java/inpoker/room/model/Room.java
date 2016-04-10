@@ -69,7 +69,7 @@ public class Room {
 		}
 		updateCanStart();
 	}
-
+	
 	public static int getIdCount() {
 		return idCount;
 	}
