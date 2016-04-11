@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Users {
+	// TODO 이 값 어딘가 사용하나?
 	private static Users users = null;
 	private static Map<String, User> loginUsers = new HashMap<String, User>();
 	
@@ -33,6 +34,7 @@ public class Users {
 		return users;
 	}
 
+	// TODO 이 method는 무슨 용도?
 	public void setUsers(Users users) {
 		Users.users = users;
 	}

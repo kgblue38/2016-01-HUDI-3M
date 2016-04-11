@@ -1,7 +1,7 @@
 package inpoker.gamemain.model;
 
 public class GameManager {
-	
+	// TODO 서로 관련이 있는 상수 값을 관리할 때는 가능하면 enum을 사용
 	public static String user1CardNum = "-1";
 	public static String user2CardNum = "-1";
 	public static String leftUser;

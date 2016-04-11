@@ -19,6 +19,7 @@ public class UserApiController {
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public Map<String, String> checkUserExist(@RequestParam String userId) {
+		// TODO 전달해야 하는 인자가 하나인데 굳이 Map을 사용해야 하나?
 		Map<String, String> userExist = new HashMap<>();
 		try {
 			userDao.findUserById(userId);

@@ -31,6 +31,7 @@ public class UserController {
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public String create(@Valid User user, BindingResult bindingResult) {
+		// TODO 유효성 체크 후 에러가 있는 경우에 대한 처리는 하지 않나?
 		if (!bindingResult.hasErrors()) {
 			userDao.addUser(user);
 			logger.debug("user create() completed");
@@ -46,6 +47,7 @@ public class UserController {
 			users.addUser(user);
 			request.getSession().setAttribute("user", user);
 			return "redirect:/room/channel";
+		// TODO http://docs.oracle.com/javase/7/docs/technotes/guides/language/catch-multiple.html. multiple catch 가능함.
 		} catch (UserNotFoundException e) {
 			return "redirect:/";
 		} catch (UserLoginFailedException e) {
@@ -62,6 +64,7 @@ public class UserController {
 	@RequestMapping(value = "", method = RequestMethod.PUT)
 	public String update(@RequestParam String userPassword, HttpSession session) throws UserNotFoundException {
 		userDao.updateUser(userPassword, SessionUtils.getUserValue(session, "user"));
+		// TODO System.out.println => Logging 사용. 프로젝트 전체 코드에서 System.out 제거
 		System.out.println("put problem");
 		return "redirect:/room/channel";
 	}

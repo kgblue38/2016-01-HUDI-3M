@@ -4,6 +4,7 @@ import inpoker.user.model.User;
 
 public class RoomUser {
 	private User user;
+	// TODO 상태 데이터를 enum으로 관리한다.
 	private String userStatus;
 	// notReady랑 ready 상태를 가진다.
 

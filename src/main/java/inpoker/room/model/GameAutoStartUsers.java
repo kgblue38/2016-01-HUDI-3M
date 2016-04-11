@@ -45,6 +45,7 @@ public class GameAutoStartUsers {
 	private static int makeRoom() {
 		Object[] users = autoGameUsers.values().toArray();
 		if(roomId == -1){
+			// TODO 코드 복잡한데 반드시 이렇게 구현해야 하나? Map이 아닌 다른 자료 구조 쓰면 안되나?
 			User user1 = (User)users[0];
 			User user2 = (User)users[1];
 			Room room = new Room(user1, user2);

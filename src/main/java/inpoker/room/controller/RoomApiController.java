@@ -44,6 +44,8 @@ public class RoomApiController {
 	
 	@RequestMapping(value = "/channel/users", method = RequestMethod.PUT)
 	public Object checkUsers() {
+		// TODO Users.getLoginUsers()로 구현할 수 없나?
+		// TODO Map을 그냥 반환하면 안되나?
 		return Users.getInstance().getLoginUsers().values();
 	}
 	

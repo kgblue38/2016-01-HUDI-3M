@@ -2,6 +2,7 @@ package inpoker.room.model;
 
 import inpoker.user.model.User;
 
+// TODO 로직의 복잡도가 높은데 단위 테스트를 통해 테스트한다.
 public class Room {
 	private static int idCount;
 	private int roomId;
@@ -57,6 +58,8 @@ public class Room {
 	}
 
 	private boolean allUserReady() {
+		// TODO 각 RoomUser에서 상태 데이터 꺼내지 말고 메시지를 보내 현재 상태를 조회하는 방식으로 개선한다.
+		// TODO 상태 값을 하드코딩하지 말고 enum 사용한다.
 		return roomUser1.getUserStatus().equals("ready") && roomUser2.getUserStatus().equals("ready");
 	}
 

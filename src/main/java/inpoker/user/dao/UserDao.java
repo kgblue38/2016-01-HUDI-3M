@@ -23,6 +23,8 @@ public class UserDao {
 		jdbcTemplate.update(sql, user.getUserId(), user.getUserPassword(), user.getUserEmail());
 	}
 
+	// TODO https://github.com/NHNNEXT/2016-01-HUDIWEB-SAEDAL/blob/master/src/main/java/org/next/dao/UserDao.java 코드 참고
+	// 매핑 자동화할 수 있음.
 	public User findUserById(String userId) throws UserNotFoundException {
 		try {
 			String sql = "SELECT pid, userId, userPassword, userEmail FROM users WHERE userId = ?";
@@ -44,6 +46,7 @@ public class UserDao {
 			String sql = "UPDATE users SET userPassword = ? WHERE userId = ?";
 			jdbcTemplate.update(sql, userPassword, user.getUserId());
 		} catch (EmptyResultDataAccessException e) {
+			// TODO 이 Exception을 Controller에서 활용하지 않는데 굳이 이 부분 처리해야 하나?
 			throw new UserNotFoundException();
 		}
 	}

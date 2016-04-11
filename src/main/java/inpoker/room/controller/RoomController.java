@@ -29,6 +29,7 @@ public class RoomController {
 	@RequestMapping("/wait")
 	public String goWait(HttpSession session, int roomId, Model model) {
 		Room room = rooms.getRoom(roomId);
+		// TODO model.addAttribute("room", rooms.getRoom(roomId)); 불필요한 로컬 변수는 만들지 않는다.
 		model.addAttribute("room", room);
 		return "/waittingroom.jsp";
 	}
@@ -42,11 +43,14 @@ public class RoomController {
 	}
 	
 	@RequestMapping("/game")
+	// TODO /game/{roomId}와 같이 path variable 사용해 구현
 	public String goGame(@RequestParam int roomId, Model model) {
 		Room room = rooms.getRoom(roomId);
+		// TODO room.start();와 같은 형태로 구현해 상태를 바꾸는 방향은 어떨까? 지금 코드와 어떻게 바른지 비교해 본다.
 		room.setRoomStatus("start");
 		System.out.println(room.getRoomStatus());
 		model.addAttribute("room", room);
+		// TODO view 이름에 .jsp를 포함하지 않도록 설정한다.
 		return "/gameMain.jsp";
 	}
 }
